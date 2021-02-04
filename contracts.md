@@ -2,6 +2,7 @@
 
 - [Introduction](#introduction)
     - [Contracts and Facades](#contracts-and-facades)
+- []
 
 <a name="introduction"></a>
 ### Introduction
@@ -13,4 +14,6 @@ All of the Lenevor Contracts haven your own repository Github.
 <a name="contracts-and-facades"></a>
 ### Contracts And Facades
 
+Lenevor facades and helper functions offer an easy way to use Lenevor services without the need to write redundant code and resolve contracts outside of the service container.
 
+Unlike facades, which don't require you to require them in your class constructor, contracts allow you to define explicit dependencies for your classes. 
