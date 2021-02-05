@@ -32,3 +32,31 @@ In particular, most applications can use facades without complications during de
 Ok, how do you implement a contract? It's actually quite simple. Most types of classes in Lenevor are resolved through the service container, which include handlers, event listeners, middleware, and even route closures.
 
 For example,  is take a look at this controller: 
+
+    <?php
+
+    namespace App\Http\Controllers;
+
+    use Syscodes\Contracts\View\Factory;
+
+    class Customer
+    {
+        /**
+         * The Request implementation.
+         *
+         * @var \Syscodes\Contracts\View\Factory $factory
+         */
+        protected $factory;
+
+        /**
+         * Constructor. Create a new Customer instance.
+         *
+         * @param  \Syscodes\Contracts\View\Factory  $factory;
+         *
+         * @return void
+         */
+        publicn function __constructor(Factory $factory)
+        {
+            $this->factory = $factory;
+        }
+    }
