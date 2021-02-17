@@ -44,9 +44,17 @@ We want it to be as easy as possible to get started with Lenevor. There are a va
 <a name="installation-via-composer"></a>
 ### Installation Via Composer
 
-If your computer already has PHP and Composer installed, you may create a new Lenevor project by using Composer directly. After the application has been created, you may start [PHP, Wamp, nginx, etc.] local development server using the navigator web:
+If your computer already has PHP and Composer installed, you may create a new Lenevor project by using Composer directly. After the application has been created, you may start [PHP, Wamp, nginx, etc.] local development server using the navigator web or using the composer command from command line:
 
     composer create-project lenevor/lenevor [project-app]
+
+    cd [project-app]
+
+    php prime
+
+or 
+
+    composer create-project lenevor/appstarter [project-app]
 
     cd [project-app]
 
