@@ -123,14 +123,14 @@ For IIS, Lenevor provides a `web.config` file located in public/web.config:
         </system.webServer>
     </configuration>
 
-<a name="debug-mode">
+<a name="debug-mode"></a>
 ## Debug Mode
 
 For the debug option in your configuration file `config/app.php` it determines what information should be shown about an error really to the user. By default, this option is set to activate the value of the environment variable `APP_DEBUG`, which is found in your .env file of the root folder.
 
 ** In production environment, this variable value must be `false`. If the `APP_DEBUG` variable is set to` true` in production, you risk exposing configuration values ​​to your application's end users. ** 
 
-<a name="recommended">
+<a name="recommended"></a>
 ## Recommended
 
 This framework was designed to be installed above the document root directory, with the document root being the public (commonly this is a known as public_html folder) folder.
