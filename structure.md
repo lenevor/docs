@@ -10,7 +10,6 @@
     - [The `resources` Directory](#the-resources-directory)
     - [The `routes` Directory](#the-routes-directory)
     - [The `storage` Directory](#the-storage-directory)
-    - [The `tests` Directory](#the-tests-directory)
     - [The `vendor` Directory](#the-vendor-directory)
 - [The App Directory](the-app-directory)
     - [The `Console` Directory](#the-console-directory)
