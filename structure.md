@@ -52,7 +52,7 @@ The `database` directory contains your database migrations, seeds and allows you
 
 The `public` directory contains the `index.php` file, than is the entry point for all request entering you application and configures autloading. In this directory also houses your assets such as CSS, fonts, images and JavaScript.
 
-<a name="the-resources-directory">
+<a name="the-resources-directory"></a>
 ### The Resources Directory
 
 The `resources` directory contains your views, as wll as your raw, un-compiled assets such as CSS and JavaScript. Also houses all of your language files.
@@ -76,5 +76,5 @@ The `storage` directory contains your logs, compiled Blade templates, file based
 
 The `vendor` directory contains your [Composer](https://getcomposer.org) dependencies.
 
-<a name="the-storage-directory">
+<a name="the-storage-directory"></a>
 ## The App Directory
