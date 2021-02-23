@@ -85,36 +85,36 @@ All the applications which develop be found in the application directory. By def
 The `app` directory contains a variety of additional directories such as `Console`, `Http`, and `Providers`. Think of the `Console` and `Http` directories as providing an API into the core of your application. The HTTP protocol and CLI are both mechanisms to interact with your application, but do not actually contain application logic. In other words, they are two ways of issuing commands to your application. 
 
 <a name="the-console-directory"></a>
-##### The `Console` Directory
+##### The Console Directory
 
 The `Console` directory contains all of teh custom `Prime` commands for you application. In the moment everything concerning the console application of the framework is under development. 
 
 <a name="the-events-directory"></a>
-##### The `Events` Directory
+##### The Events Directory
 
 This directory does not exist by default, however, it will be created by you manually, for now, it should be like this until the development of the `Prime` command console is finished. The `Events` directory houses event classes. Events are used to alert other applications that a certain action has occurred, providing great flexibility and process control within applications.
 
 <a name="the-exceptions-directory"></a>
-#### The `Exceptions` Directory
+#### The Exceptions Directory
 
 The `Exceptions` directory contains your application's exception handler and is also a good place to place any exceptions thrown by your application. If you would like to customize how your exceptions are logged or rendered, you should modify the `Handler` class in this directory.
 
 <a name="the-http-directory"></a>
-#### The `Http` Directory
+#### The Http Directory
 
 The `Http` directory contains your controllers, middlewares, and form requests. From this directory, all requests entering your application are handled. 
 
 <a name="the-listeners-directory"></a>
-#### The `Listeners` Directory
+#### The Listeners Directory
 
 This directory does not exist by default, however, it will be created by you manually, for now, it should be like this until the development of the `Prime` command console is finished. The `Listeners` directory contains teh classes that handle your events. Event listeners receive an event instance and perform logic in response to the event being fired.
 
 <a name="the-models-directory"></a>
-#### The `Models` Directory
+#### The Models Directory
 
 The `Models` directory contains all of your Holisen model classes. At the moment the ORM is being developed and instead you can access a database using the `QueryBuilder`.
 
 <a name="the-providers-directory"></a>
-#### The `Providers` Directory
+#### The Providers Directory
 
 The `Providers` directory contains all of the service providers for your application. Service providers bootstrap your application by binding services in the service container, registering events, or performing any other tasks to prepare your application for incoming requests.
