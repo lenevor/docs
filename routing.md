@@ -18,13 +18,25 @@ The most basic Lenevor routes accept a URI and a closure, providing a simple and
 <a name="the-default-route-files"></a>
 #### The Default Route Files
 
-All Lenevor paths are defined in their path files, which are located in the `routes` directory. These files are loaded automatically through the `App \ Providers \ RoutingServiceProvider` of your application. The `routes \ web.php` file defines routes that are for the web interface and the routes in the` routes / api.php` file defines everything related to requests generated in data in `JSON` format.
+All Lenevor paths are defined in their path files, which are located in the `routes` directory. These files are loaded automatically through the `App\Providers\RoutingServiceProvider` of your application. The `routes\web.php` file defines routes that are for the web interface and the routes in the `routes/api.php` file defines everything related to requests generated in data in `JSON` format.
 
-Most applications will start by defining routes in their `routes / web.php` file, where these defined routes are accessed by entering the URL of the route defined in your browser. Here is an example, you can access the following route by navigating to `http: // project-app.com / user` in your browser:
+Most applications will start by defining routes in their `routes/web.php` file, where these defined routes are accessed by entering the URL of the route defined in your browser. Here is an example, you can access the following route by navigating to `http://project-app.com/user` in your browser:
 
     use App\Http\Controllers\UserController;
 
     Route::get('/user', [UserController::class, 'index']);
+
+Also, there is another way to call a controller and a method defined by you, it is simply to assign the character `@` in the text string in the file `routes/web.php` as follows:
+
+    Route::get('/user', 'UserController@index');
+
+The controller namespace is assigned in the `namespace` variable this desactived by default, you must uncomment this variable which is called in the `namespace` method of the `Route` facade in the `App\Providers\Routing` like so:
+
+    $this->namespace = 'App\Http\Controllers';
+
+    Route::middleware('web')
+             ->namespace($this->namespace)
+             ->group(basePath('routes/web.php'));
 
 <a name="available-router-methods">
 #### Available Router Methods
@@ -46,6 +58,17 @@ Sometimes you may need to register a route that responds to multiple HTTP verbs.
 
     Route::any('/', function () {
         //
+    });
+
+<a name="dependency-injection"></a>
+#### Dependency Injection
+
+You have the option of using any dependencies required for a route route's callback signature. Therefore, all declared dependencies will be automatically resolved and injected into the callback by Lenevor's `service container`. For example, you can declare the class 'Syscodes\Http\Request' so that the current HTTP request is automatically injected into your route's callback: 
+
+    use Syscodes\Http\Request;
+
+    Route::get('/home, function (Request $request) {
+        // ...
     });
 
 <a name="redirect-routes"></a>
