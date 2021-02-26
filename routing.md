@@ -3,7 +3,11 @@
 - [Basic Routing](#basic-routing)
     - [Redirect Routes](#redirect-routes)
     - [View Routes](#view-routes)
-
+- [Route Parameters](#route-parameters)
+    - [Required Parameters]($required-parameters)
+    - [Regular Expression Constraints](#regular-expression-constraints)
+    - [Global Constraints](#global-constraints)
+    
 <a name="basic-routing"></a>
 ## Basic Routing
 
@@ -38,7 +42,7 @@ The controller namespace is assigned in the `namespace` variable this desactived
              ->namespace($this->namespace)
              ->group(basePath('routes/web.php'));
 
-<a name="available-router-methods">
+<a name="available-router-methods"></a>
 #### Available Router Methods
 
 The router allows you to register routes that respond to any HTTP verb:
@@ -94,3 +98,7 @@ If your route only needs to return a `view`, you may use the `Route::view` metho
     Route::view('/welcome', 'welcome', ['name' => 'Alexander']);
 
 > {note} When using route parameters in view routes, the following parameters are reserved by Lenevor and cannot be used: `view`, `data`, `status`, and `headers`.
+
+<a name="route-parameters"></a>
+## Route Parameters
+
