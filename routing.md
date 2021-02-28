@@ -102,3 +102,6 @@ If your route only needs to return a `view`, you may use the `Route::view` metho
 <a name="route-parameters"></a>
 ## Route Parameters
 
+<a name="required-parameters"></a>
+### Required Parameters
+
