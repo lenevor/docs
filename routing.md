@@ -110,3 +110,53 @@ Sometimes you will need to capture segments of the URI within your route. For ex
     Route::get('/product/{id}, function ($id) {
         return 'Product ID: '.$id;
     });
+
+Route parameters are always enclosed in braces `{}` and must consist of alphanumeric characters. Underscores (`_`) are also accepted within the path parameters. Route parameters are injected into a route callbacks and the names of the route callback / controller arguments do not matter. 
+
+<a name="dependency-injection"></a>
+#### Dependency Injection
+
+If your route has dependencies, Lenevor's service container to automatically inject into your route's callback. You must import it to be use of the class or interface you want to use as follows:
+
+    use Syscodes\Http\Request;
+
+    Route::get('/product/{id}', function (Request $request, $id) {
+        return 'Product ID: '.$id;
+    });
+
+<a name="regular-expression-constraints">
+### Regular Expression Constraints
+
+You can constrain the format of your route parameters using the `where` method. This `where` method accepts the name of the parameter and a regular expression which defines how the parameter should be constrained: 
+
+    Route::get('/product/{id}', function ($id) {
+        return 'Product ID: '.$id;
+    })->where('id', '[0-9]+');
+
+    Route::get('/product/{name}', function ($name) {
+        return 'Product Name: '.$name;
+    })->where('name', '[a-zA-Z]+');
+
+If the incoming request does not match the path regex constraints, a HTTP 404 response will be returned. 
+
+<a name="global-constraints"></a>
+### Global Constraints
+
+Si desea que un parámetro de ruta sea definido por una expresión regular dada globalmente para todo el marco, debe definir estos patrones en el método `boot` de su clase `App\Providers\RouteServiceProvider`: 
+
+    /**
+     * Define your route model bindings, pattern filters, etc.
+     *
+     * @return void
+     */
+    publixcblic function boot()
+    {
+        Route::pattern('id', '[0-9]+');
+    }
+
+Once the pattern has been defined, it is automatically applied to all routes using that parameter name:
+
+    Route::get('/product/{id}, function ($id) {
+        //
+    });
+
