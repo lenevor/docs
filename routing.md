@@ -105,3 +105,8 @@ If your route only needs to return a `view`, you may use the `Route::view` metho
 <a name="required-parameters"></a>
 ### Required Parameters
 
+Sometimes you will need to capture segments of the URI within your route. For example, you may need to capture a product's ID form the URL. You may do so by defining route parameters:
+
+    Route::get('/product/{id}, function ($id) {
+        return 'Product ID: '.$id;
+    });
