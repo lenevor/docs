@@ -6,7 +6,12 @@
 - [Route Parameters](#route-parameters)
     - [Required Parameters]($required-parameters)
     - [Regular Expression Constraints](#regular-expression-constraints)
-    - [Global Constraints](#global-constraints)
+- [Named Routes](#named-routes)
+- [Route Groups](#route-groups)
+    - [Middleware](#middleware)
+    - [Subdomain Routing](#subdomain-routing)
+    - [Route Prefixes](#route-prefixes)
+    - [Route Name Prefixes](#route-name-prefixes)
     
 <a name="basic-routing"></a>
 ## Basic Routing
@@ -105,10 +110,10 @@ If your route only needs to return a `view`, you may use the `Route::view` metho
 <a name="required-parameters"></a>
 ### Required Parameters
 
-Sometimes you will need to capture segments of the URI within your route. For example, you may need to capture a product's ID form the URL. You may do so by defining route parameters:
+Sometimes you will need to capture segments of the URI within your route. For example, you may need to capture a user's ID form the URL. You may do so by defining route parameters:
 
-    Route::get('/product/{id}, function ($id) {
-        return 'Product ID: '.$id;
+    Route::get('/user/{id}, function ($id) {
+        return 'user ID: '.$id;
     });
 
 Route parameters are always enclosed in braces `{}` and must consist of alphanumeric characters. Underscores (`_`) are also accepted within the path parameters. Route parameters are injected into a route callbacks and the names of the route callback / controller arguments do not matter. 
@@ -120,43 +125,134 @@ If your route has dependencies, Lenevor's service container to automatically inj
 
     use Syscodes\Http\Request;
 
-    Route::get('/product/{id}', function (Request $request, $id) {
-        return 'Product ID: '.$id;
+    Route::get('/user/{id}', function (Request $request, $id) {
+        return 'user ID: '.$id;
     });
 
-<a name="regular-expression-constraints">
+<a name="regular-expression-constraints"></a>
 ### Regular Expression Constraints
 
 You can constrain the format of your route parameters using the `where` method. This `where` method accepts the name of the parameter and a regular expression which defines how the parameter should be constrained: 
 
-    Route::get('/product/{id}', function ($id) {
-        return 'Product ID: '.$id;
+    Route::get('/user/{id}', function ($id) {
+        return 'user ID: '.$id;
     })->where('id', '[0-9]+');
 
-    Route::get('/product/{name}', function ($name) {
-        return 'Product Name: '.$name;
+    Route::get('/user/{name}', function ($name) {
+        return 'user Name: '.$name;
     })->where('name', '[a-zA-Z]+');
 
 If the incoming request does not match the path regex constraints, a HTTP 404 response will be returned. 
 
 <a name="global-constraints"></a>
-### Global Constraints
+#### Global Constraints
 
-Si desea que un parámetro de ruta sea definido por una expresión regular dada globalmente para todo el marco, debe definir estos patrones en el método `boot` de su clase `App\Providers\RouteServiceProvider`: 
+If you would like a route parameter to be defined by a pattern given globally for the entire framework, you may use the `pattern` method., you must define these patterns in the `boot` method of your `App\Providers\RouteServiceProvider` class: 
 
     /**
      * Define your route model bindings, pattern filters, etc.
      *
      * @return void
      */
-    publixcblic function boot()
+    public function boot()
     {
         Route::pattern('id', '[0-9]+');
     }
 
 Once the pattern has been defined, it is automatically applied to all routes using that parameter name:
 
-    Route::get('/product/{id}, function ($id) {
-        //
+    Route::get('/user/{id}, function ($id) {
+        // Executed if {id} is numeric
     });
 
+<a name="named-routes"></a>
+## Named Routes
+
+Named routes allow you to generate a URL or redirects for specific routes. It is used by specifying a name for a route by chaining the `name` method onto the route definition, as follows: 
+
+    Route::get('/user/profile', function () {
+        //
+    })->name('profile');
+
+You may also specify route names for controller actions, as follows:
+
+    Route::get('/user/profile', [
+        UserController::class,
+        'show'
+    ])->name('profile);
+
+> {note} Route names should always be unique.
+
+<a name="generating-urls-to-named-routes"></a>
+#### Generating URLs To Named Routes
+
+When you have assigned name to a given route, you may use the route's name when generating URLs or redirects via Lenevor's `route` and `redirect` helper functions, as follows:
+
+    // Generating route
+    $url = route('profile');
+
+    // Generating redirects
+    return redirect()->route('profile');
+
+If the named route defines parameters, you may pass these parameters as the second argument of the route function. The given parameters will automatically be inserted into the generated URL in their correct positions, as follows: 
+
+    Route::get('/user/{id}/profile', function ($id){
+        //
+    })->name('profile');
+
+    $url = route('profile', ['id' => 1]);
+
+<a name="route-groups"></a>
+## Route Groups
+
+Route groups allow you to share route attributes, such as middleware, prefix, name, namespace, where and domain, across a large number of routes without needing to define those attributes on each individual route. 
+
+Namespace delimiters and slashes in URI prefixes are automatically added where appropriate.
+
+<a name="middleware"></a>
+### Middleware
+
+To assign middleware to all routes within a group, you may simply use the `middleware` method before defining the group. Middleware are executed in the order they are listed in the array, as follows: 
+
+    Route::middleware(['first', 'second'])->group(function () {
+        Route::get('/', function () {
+            // uses first and second middleware
+        });
+
+        Route::get('/user', function () {
+            // uses first and second middleware
+        });
+    });
+
+<a name="subdomain-routing"></a>
+### Subdomain Routing
+
+Route groups can also be used to manage subdomain routing. Subdomains may be assigned route parameters just like path URIs, allowing you to capture a portion of the domain for usage on your path or controller. The subdomain is specified by calling the `domain` method before defining the group, as follows: 
+
+    Route::domain('{domain}.example.com')->group(function() {
+        Route::get('/user/{id}', function ($domain, $id) {
+            //
+        });
+    });
+
+<a name="route-prefixes"></a>
+### Route Prefixes
+
+The `prefix` method may be used to prefix each route in the group with a given URI. For example, all route URIs within the group are prefixed with `admin`, as follows:
+
+    Route::prefix('admin')->group(function () {
+        Route::get('/users', function () {
+            // Result is "/admin/users" URL
+        });
+    });
+
+<a name="route-name-prefixes"></a>
+### Route Name Prefixes
+
+The `name` method may be used to prefix each route name in the group with a given string. For example, you may add the prefix to all grouped route names with `admin`. The prefix of the name of the route is specified and by later it is provided at the end of the route specifies the string of the name of the route. This method must be called before defining the group, as follows: 
+
+    Route::name('admin.')->group(function () {
+        Route::get('/users', function () {
+            // Route assigned name "admin.users"...
+        })->name('users');
+    });
