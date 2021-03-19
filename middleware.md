@@ -8,3 +8,4 @@
     - [Middleware Groups](#middleware-groups)
 
 - [Middleware Parameters](#middleware-parameters)
+- [Terminable Middleware](#terminabe-middleware)
