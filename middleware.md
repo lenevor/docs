@@ -14,8 +14,8 @@
 
 Middleware provide a mechanism inspecting and filtering  HTTP requests entering your application. All of middlewares are localted in the `app/Http/Middleware` directory. 
 
-<a name="defining-middleware">
-## Defining Middlware
+<a name="defining-middleware"></a>
+## Defining Middleware
 
 To create a middleware, you must do it (manually for now) from the `app/Http/Middleware` directory, as follows:
 
