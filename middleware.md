@@ -12,7 +12,7 @@
 <a name="introduction"></a>
 ## Introduction
 
-Middleware provide a mechanism inspecting and filtering  HTTP requests entering your application. All of middlewares are localted in the `app/Http/Middlware` directory. 
+Middleware provide a mechanism inspecting and filtering  HTTP requests entering your application. All of middlewares are localted in the `app/Http/Middleware` directory. 
 
 <a name="defining-middleware">
 ## Defining Middlware
