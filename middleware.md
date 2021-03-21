@@ -7,12 +7,11 @@
     - [Assigning Middleware To Routes](#assigning-middleware-routes)
     - [Middleware Groups](#middleware-groups)
 - [Middleware Parameters](#middleware-parameters)
-- [Terminable Middleware](#terminabe-middleware)
 
 <a name="introduction"></a>
 ## Introduction
 
-Middleware provide a mechanism inspecting and filtering  HTTP requests entering your application. All of middlewares are localted in the `app/Http/Middleware` directory. 
+Middleware provide a mechanism inspecting and filtering HTTP requests entering your application. All of middlewares are localted in the `app/Http/Middleware` directory. 
 
 <a name="defining-middleware"></a>
 ## Defining Middleware
@@ -25,7 +24,7 @@ To create a middleware, you must do it (manually for now) from the `app/Http/Mid
 
     use Closure;
 
-    class [middleware-name]
+    class [Middleware-Name]
     {
         /**
          * Handle an incoming request.
@@ -41,3 +40,43 @@ To create a middleware, you must do it (manually for now) from the `app/Http/Mid
         }
     }
 
+<a name="middleware-responses"></a>
+#### Middleware & Responses
+
+Actually, a middleware can perform a task before or after passing the request to the application. For example, the following middleware would perform some task before the application uses the request: 
+
+    <?php
+
+    namespace App\Http\Middleware;
+
+    use Closure;
+
+    class [Before-Middleware]
+    {
+        public function handle($request, Closure $next)
+        {
+            // Perform action
+
+            return $next($request);
+        }
+    }
+
+Therefore, the middleware following would perform its task after the application uses the request: 
+
+    <?php
+
+    namespace App\Http\Middleware;
+
+    use Closure;
+
+    class [After-Middleware]
+    {
+        public function handle($request, Closure $next)
+        {
+            $response = $next($request);
+            
+            // Perform action
+
+            return $response;            
+        }
+    }
