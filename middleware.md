@@ -90,7 +90,7 @@ Therefore, the middleware following would perform its task after the application
 <a name="registering-middleware"></a>
 ## Registering Middleware
 
-<a name="global-middleware">
+<a name="global-middleware"></a>
 ### Global Middleware
 
 If you want a middleware to run during every HTTP request to your application, you must list the middleware class in the `$middleware` property of your `app/Http/Lenevor.php` class. 
