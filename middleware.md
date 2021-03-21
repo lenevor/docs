@@ -85,4 +85,12 @@ Therefore, the middleware following would perform its task after the application
         }
     }
 
-> {Note} When used [After-Middleware] in the example, it is for you to change the name of the middleware that you consider necessary for your application. 
+> {Note} When used [After-Middleware] in the example, it is for you to change the name of the middleware that you consider necessary for your application.
+
+<a name="registering-middleware"></a>
+## Registering Middleware
+
+<a name="global-middleware">
+### Global Middleware
+
+If you want a middleware to run during every HTTP request to your application, you must list the middleware class in the `$middleware` property of your `app/Http/Lenevor.php` class. 
