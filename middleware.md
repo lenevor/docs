@@ -40,6 +40,8 @@ To create a middleware, you must do it (manually for now) from the `app/Http/Mid
         }
     }
 
+> {Note} When used [Middleware-Name] in the example, it is for you to change the name of the middleware that you consider necessary for your application. 
+
 <a name="middleware-responses"></a>
 #### Middleware & Responses
 
@@ -61,6 +63,8 @@ Actually, a middleware can perform a task before or after passing the request to
         }
     }
 
+> {Note} When used [Before-Middleware] in the example, it is for you to change the name of the middleware that you consider necessary for your application. 
+
 Therefore, the middleware following would perform its task after the application uses the request: 
 
     <?php
@@ -80,3 +84,5 @@ Therefore, the middleware following would perform its task after the application
             return $response;            
         }
     }
+
+> {Note} When used [After-Middleware] in the example, it is for you to change the name of the middleware that you consider necessary for your application. 
