@@ -33,7 +33,7 @@ You can modify the value to suit the needs of your application. Also, you can mo
             abort (400);
         }
 
-        App::setLocale($locale);
+        App::setLocale($locale); 
     }
 
 Additionally, you can configure a "fallback language", which will be used when the default language does not contain a given translating string. This fallback language is configured in the configuration file `config/app.php`:
