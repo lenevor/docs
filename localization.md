@@ -94,3 +94,4 @@ Again, if the translation string does not exist, the __ function will return the
 If you are using the Plaze templating engine, you may use the {{ }} echo syntax to display the translation string:
 
     {{ __('exception.enviroment') }}
+
