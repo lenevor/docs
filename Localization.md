@@ -1,7 +1,11 @@
-# Locatization
+# Localization
 
 - [Introduction](#introduction)
     - [Configuring The Locale](#configuring-locale)
+- [Defining Translation Strings](#defining-translation-strings)
+    - [Using Short Keys](#using-short-keys)
+- [Retrieving Translation Strings](#retrieving-translation-strings)
+
 
 <a name="introduction"></a>
 ## Introduction
@@ -53,3 +57,40 @@ You may use the currentLocale and isLocale methods on the App facade to determin
         //
     }
 
+<a name="defining-translation-strings"></a>
+## Defining Translation Strings
+
+<a name="using-short-keys"></a>
+### Using Short Keys
+
+Translation strings are stored in files within the `resources/lang` directory. Within this directory, there should be a subdirectory for each language supported by your application. This is how Lenevor uses to manage translation strings for built-in Lenevor features such as exception error messages:
+
+    /resources
+        /lang
+            /en
+                /exception.php
+            /es
+                /exception.php
+
+All language files return an array of keyed strings. For example:
+
+    <?php
+
+    // resources/lang/exception.php
+
+    return [
+        'environment' => 'Environment of frame', 
+    ];
+
+<a name="retrieving-translation-strings"></a>
+## Retrieving Translation Strings
+
+To retrieve translation strings from your language files simply use the `__` helper function. If you are using "short keys" to define your translation strings, you must pass the file containing the key and the key itself to the `__` function using the "dot" syntax. For example, let's retrieve the environment translation string from the `resources/lang/en/exception.php` language file:
+
+    echo __('exception.enviroment');
+
+Again, if the translation string does not exist, the __ function will return the translation string key that it was given.
+
+If you are using the Plaze templating engine, you may use the {{ }} echo syntax to display the translation string:
+
+    {{ __('exception.enviroment') }}
