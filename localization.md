@@ -1,4 +1,4 @@
-# Locatization
+# Localization
 
 - [Introduction](#introduction)
     - [Configuring The Locale](#configuring-locale)
