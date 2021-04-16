@@ -76,7 +76,7 @@ All language files return an array of keyed strings. For example:
 
     <?php
 
-    // resources/lang/exception.php
+    // resources/lang/en/exception.php
 
     return [
         'environment' => 'Environment of frame', 
