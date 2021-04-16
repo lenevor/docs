@@ -26,7 +26,7 @@ Lenevor provides a way to manage translation strings. Language strings are store
 
 The default language for your application is stored in the locale option file `config/app.php`:
       
-    'locale' => 'en'
+    'locale' => 'en' 
 
 You can modify the value to suit the needs of your application. Also, you can modify the default language for a single HTTP request at runtime using the `setLocale` method provided by the App facade:
 
