@@ -30,7 +30,7 @@ or using the "assign" method for detect variables in the views as follows:
         return view('example')->assign('name, 'Alexander);
     });
 
-<a name="creating-rendering-views">
+<a name="creating-rendering-views"></a>
 ## Creating & Rendering Views
 
 With this utility you may create a view by placing a file with the `.plaze.php` extension in your application in the `resources/views` directory . The `.plaze.php` extension informs the framework that the file contains a [Plaze template](/plaze.md). Plaze templates contain HTML as well as Plaze directives that allow you to easily echo values, create conditional statements (if, elseif), iterate over data, and much more.
