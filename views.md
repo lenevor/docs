@@ -5,7 +5,7 @@
     - [Nested View Directories](#nested-view-directories)
     - [Determining View Exists](#determining-view-exists)
 - [Passing Data To Views](#passing-data-views)
-    - []()
+    - [Passing Data With All Views](#passing-data-with-views)
 
 <a name="introduction"></a>
 ## Introduction
@@ -54,7 +54,7 @@ Views may also return values using the View facade as follows:
 As you can see, the first argument passed to the view wizard corresponds to the view file name in the `resources/views` directory. The second argument corresponds is an array of data passing the name variable that is displayed in the view using the [Plaze syntax](/plaze.md). 
 
 <a name="nested-view-directories"></a>
-### nested View Directories
+### Nested View Directories
 
 In the views you have the option of being nested within the subdirectories of the `resources/views` directory. "Dot" notation may be used to reference nested views. For example, if your view is stored at `resources/views/backend/profile.plaze.php`, you may return it from one of your application's routes | controllers as follows: 
 
@@ -83,5 +83,40 @@ When passing information in this manner, the data should be an array with key / 
 As an alternative to passing a complete array of data to the `view` helper function, you may use the `assign` method to add individual pieces of data to the view. The `assign` method returns an instance of the view object so that you can continue chaining methods before returning the view as follows:
 
     return view('example')
-           ->assign('name', 'Alexander])
+           ->assign('name', 'Alexander')
            ->assign('lastname', 'Campo');
+
+<a name="passing-data-with-views"></a>
+### Passing Data With All Views
+
+Sometimes, you may need to share data with all the views that are rendered  by your application. You may do it using the `View` facade's the `share` method. Generally, you should place calls to the shared method within a service provider's `boot` method . You can add them to the `App\Providers\AppServiceProvider` class or generate a separate service provider to house as follows:
+
+    <?php 
+
+    namespace App\Providers;
+
+    use Syscodes\Support\Facades\View;
+    use Syscodes\Support\ServiceProvider;
+
+    class AppServiceProvider extends ServiceProvider
+    {
+        /**
+        * Bootstrap any application services.
+        * 
+        * @return void
+        */
+        public function boot()
+        {
+            View::share('key', 'value');
+        }
+
+        /**
+        * Register any application services.
+        * 
+        * @return void
+        */
+        public function register()
+        {
+            //
+        }
+    }
