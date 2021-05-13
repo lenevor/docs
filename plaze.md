@@ -1,6 +1,7 @@
 # Plaze Templates
 
 - [Introduction](#introduction)
+- [Displaying Data](#displaying-data)
 
 <a name="introduction"></a>
 ## Introduction
@@ -13,3 +14,17 @@ Plaze template views can be returned from routes or controller using the global 
         return view('welcome', ['name => 'Alexander']);
     });
 
+<a name="displaying-data"></a>
+## Displaying Data
+
+You may display the data that is passed to your Plaze views, you simply specifying the variable in braces. For example,  the following path:
+
+    Route::get('/', function () {
+        return view('welcome', ['name => 'Alexander']);
+    });
+
+You may display the contents of the name variable, as follows:
+
+    Hello, {{ $name }}
+
+> {tip} Plaze's {{ }} echo statements are automatically sent through PHP's htmlspecialchars function to prevent XSS attacks.
