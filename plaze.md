@@ -11,7 +11,7 @@ Plaze is the simple, and very powerful template engine that is included with Len
 Plaze template views can be returned from routes or controller using the global `view` helper. Data may be passed to the Plaze view using the `view` helper's second argument: 
 
     Route::get('/', function () {
-        return view('welcome', ['name => 'Alexander']);
+        return view('welcome', ['name' => 'Alexander']);
     });
 
 <a name="displaying-data"></a>
@@ -20,7 +20,7 @@ Plaze template views can be returned from routes or controller using the global 
 You may display the data that is passed to your Plaze views, you simply specifying the variable in braces. For example,  the following path:
 
     Route::get('/', function () {
-        return view('welcome', ['name => 'Alexander']);
+        return view('welcome', ['name'  => 'Alexander']);
     });
 
 You may display the contents of the name variable, as follows:
