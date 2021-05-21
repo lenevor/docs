@@ -30,7 +30,7 @@ You may display the contents of the name variable, as follows:
 > {tip} Plaze's {{ }} echo statements are automatically sent through PHP's htmlspecialchars function to prevent XSS attacks.
 
 <a name="rendering_json"></a>
-### Rendering JSON
+#### Rendering JSON
 
 Also, you have the option of passing an array to your view in order to represent in JSON notation to initialize a Javascript variable. For example: 
 
