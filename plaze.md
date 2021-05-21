@@ -28,3 +28,19 @@ You may display the contents of the name variable, as follows:
     Hello, {{ $name }}
 
 > {tip} Plaze's {{ }} echo statements are automatically sent through PHP's htmlspecialchars function to prevent XSS attacks.
+
+### Rendering JSON
+
+Also, you have the option of passing an array to your view in order to represent in JSON notation to initialize a Javascript variable. For example: 
+
+    var json = <?php echo json_encode($array) ?>
+
+However, instead of manually calling `json_encode`, you may use the `@json` Plaze directive. The `@json` directive accepts the same arguments as PHP's `json_encode` function. By default, the @json directive calls the json_encode function with the `JSON_HEX_TAG`, `JSON_HEX_APOS`, `JSON_HEX_AMP`, and `JSON_HEX_QUOT` flags:
+
+    <script>
+    
+        var json = @json($array)
+
+        var json = @json($array, JSON_PRETTY_PRINT)
+
+    </script>
