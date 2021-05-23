@@ -45,3 +45,11 @@ However, instead of manually calling `json_encode`, you may use the `@json` Plaz
         var json = @json($array, JSON_PRETTY_PRINT)
 
     </script>
+
+<a name="displaying-unescaped-data"></a>
+#### Displaying Unescaped Data
+
+By default, Plaze `{{}}` statements are automatically sent  through PHP's `htmlspecialchars` function to prevent XSS attacks. If you do not want your data to be escaped, you may use the following syntax of like this: 
+
+    What's your name? My name is {!! $name !!}.
+
