@@ -54,7 +54,7 @@ By default, Plaze `{{}}` statements are automatically sent  through PHP's `htmls
     What's your name? My name is {!! $name !!}.
 
 <a name="literal-directive"></a>
-#### The `Literal` Directive
+#### The `<@Literal` Directive
 
 If you want, you can wrap the HTML in the `<@literal` directive so you don't have to prefix each `Plaze` echo statement with an `@` symbol, follows: 
 
