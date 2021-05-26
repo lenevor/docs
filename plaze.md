@@ -65,8 +65,31 @@ If you want, you can wrap the HTML in the `<@literal` directive so you don't hav
         </div>
     <@endliteral
 
-<a name="plaze-directive">
+<a name="plaze-directive"></a>
 ## Plaze Directive
 
-The `Plaze` templates also provide access to common PHP control structures, such as conditional statements and loops. In this way, they provide a very clean, terse way of working with PHP control structures, and at the same time, also remaining similar to their PHP counterparts. 
+The `Plaze` templates also provide access to common PHP control structures, such as conditional statements and loops. In this way, they provide a very clean, terse way of working with PHP control structures, and at the same time, also remaining similar to their PHP counterparts.
+
+<a name="if-statements"></a>
+### If Statements
+
+You may construct basic conditional statements to handle `if` syntax using the directives `<@if`, `<@elseif`, `<@else`. All `if` blocks must be closed with the directive `<@endif`. These directives function identically to their PHP counterparts, as follows:
+
+    <@if ($name == 'Alexander')
+        <h1>Welcome, Alexander</h1>
+    <@elseif ($name == 'guest')
+        <h1>Welcome, guest user</h1>
+    <@else 
+        <h1>Not found user</h1>
+    <@endif
+
+The `<@isset` and `<@empty` directives can be used as replacements for their respective PHP functions, as follows:
+
+    <@isset ($name)
+        // If $name is defined
+    <@endisset
+
+    <@empty ($name)
+        // If $name is empty
+    <@endempty
 
