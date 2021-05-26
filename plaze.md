@@ -2,6 +2,7 @@
 
 - [Introduction](#introduction)
 - [Displaying Data](#displaying-data)
+- [Plaze Directive](#plaze-directive)
 
 <a name="introduction"></a>
 ## Introduction
@@ -63,3 +64,9 @@ If you want, you can wrap the HTML in the `<@literal` directive so you don't hav
             What's your name? My name is {{ $name }}.
         </div>
     <@endliteral
+
+<a name="plaze-directive">
+## Plaze Directive
+
+The `Plaze` templates also provide access to common PHP control structures, such as conditional statements and loops. In this way, they provide a very clean, terse way of working with PHP control structures, and at the same time, also remaining similar to their PHP counterparts. 
+
