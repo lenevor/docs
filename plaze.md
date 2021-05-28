@@ -3,6 +3,11 @@
 - [Introduction](#introduction)
 - [Displaying Data](#displaying-data)
 - [Plaze Directive](#plaze-directive)
+    - [If Directive](#if-directive)
+    - [Switch Directive](#switch-directive)
+    - [Comments](#comments)
+    - [Including Subviews](#including-subviews)
+    - [Raw PHP](#raw-php)
 
 <a name="introduction"></a>
 ## Introduction
@@ -93,3 +98,95 @@ The `<@isset` and `<@empty` directives can be used as replacements for their res
         // If $name is empty
     <@endempty
 
+<a name="switch-statements"></a>
+### Switch Statements
+
+Switch statements can be constructed using the `<@switch`, `<@case`, `<@break` and `@default` directives . The block must be closed with `<@endswitch`, as follows:
+
+    <@switch($i)
+        <@case(1)
+            First case...
+            <@break
+            
+        <@case(2)
+            Second case...
+            <@break
+            
+        <@default
+            Default case...
+    <@endswitch
+
+<a name="loops-statements"></a>
+### Loop Statements
+
+In the conditional statements, Plaze provides simple directives for working with PHP's loop structures. Again, each of these directives functions identically to their PHP counterparts, as follows:
+
+    <@for ($i = 0; $i < 10; $i++)
+        The value is {{ $i }}
+    <@endfor
+
+    <@foreach ($users as $user)
+        <p>This is user {{ $user->id }}</p>
+    <@endforeach
+
+    <@forelse ($users as $user)
+        <li>{{ $user->name }}</li>
+    <@empty
+        <p>No users</p>
+    <@endforelse
+
+    <@while (true)
+        <p>I'm looping forever.</p>
+    <@endwhile
+
+When using loops you may also end the loop or skip the current iteration using the `<@continue` and `<@break directives`, as follows:
+
+    <@foreach ($users as $user)
+        <@if ($user->status == 1)
+            <@continue
+        <@endif
+    
+    <li>{{ $user->name }}</li>
+        <@if ($user->count == 10)
+            <@break
+        <@endif
+    <@endforeach
+
+You may also include parameters in the continuation or break condition, as follows:
+
+    <@foreach ($users as $user)
+        <@continue ($user->status == 1)
+    
+    <li>{{ $user->name }}</li>
+
+        <@break ($user->count == 10)
+    <@endforeach
+
+<a name="comments"></a>
+### Comments
+
+Plaze also allows you to define comments in your views. However, unlike HTML comments, Plaze comments are not included in the HTML returned by your application, as follows:
+
+    {{-- This is a comment not be present in the rendered HTML --}}
+
+<a name="including-subviews"></a>
+### Including Subviews
+
+Plaze's `@include` directive allows you to include a Plaze view from within another view. All variables that are available to the parent view will be made available to the included view, as follows:
+
+    <div>
+        <@include ('partial.menu')
+    </div>
+
+Even though the included view will inherit all data available in the parent view, you may also pass an array of additional data that should be made available to the included view, as follows:
+
+    <@include ('partial.menu', ['name' => 'about'])
+
+<a name="raw-php"></a>
+### Raw PHP
+
+In some situations, it's useful to embed PHP code into your views. You can use the PHP `<@php` directive to execute a block of plain PHP within your template, as follows:
+
+    <@php
+        phpinfo()
+    <@endphp
