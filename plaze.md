@@ -201,5 +201,47 @@ In some situations, it's useful to embed PHP code into your views. You can use t
 <a name="defining-layouts-template-inheritance"></a>
 ### Defining To Layouts Template Inheritance
 
-Of the primary benefits of using Plaze are template inheritance and sections.
+Of the primary benefits of using Plaze are template inheritance and sections. First, we will examine a "master" page layout. Since most web applications maintain the same general layout on various pages, therefore, it's convenient to define this layout in a single Plaze view, as follows:
 
+    {{-- Path: resources/layouts/app.plaze.php --}}
+
+    <!Doctype html>
+    <html>
+        <head>
+            <title>Project - <@give('title')</title>
+        </head>
+        <body>
+            <@section('sidebar')
+                This is the sidebar
+            <@show
+
+            <div class="content">
+                <@give('content)
+            </div>
+        </body>
+    </html>
+
+Now as you can see, this file contains a typical HTML markup. However, be aware of the `<@section` and` <@give` directives. The `<@section` directive defines a section of content, while the` <@give` directive is used to display the content of a certain section.
+
+We have already defined a layout for our application, let's define a child page that inherits the layout. 
+
+<a name="extending-layout"></a>
+#### Extending A Layout
+
+When defining a child view, use the `<@extends` Plaze directive to specify which layout should" inherit "that child view. Views that extend a Plaze layout can inject content into sections using the `<@section` directive. Remember, as in the previous example, the contents of these sections will be displayed in the layout using the `<@give` directive, as follows:
+
+    {{-- Path: resources/views/welcome.plaze.php --}}
+
+    <@extends('layouts.app')
+
+    <@section('title', 'EXample 1')
+
+    <@section('sidebar')
+        <@parent
+
+        <p>This is appended to the master sidebar</p>
+    <@stop>
+
+    <@section('content')
+        <p>This is content body</p>
+    <@stop>
