@@ -8,6 +8,9 @@
     - [Comments](#comments)
     - [Including Subviews](#including-subviews)
     - [Raw PHP](#raw-php)
+- [Building Layouts](#building-layouts)
+    - [Defining To Layouts Template Inheritance](#defining-layouts-template-inheritance)
+    - [Defining To Layouts Components](#defining-layouts-components)
 
 <a name="introduction"></a>
 ## Introduction
@@ -139,7 +142,7 @@ In the conditional statements, Plaze provides simple directives for working with
         <p>I'm looping forever.</p>
     <@endwhile
 
-When using loops you may also end the loop or skip the current iteration using the `<@continue` and `<@break directives`, as follows:
+When using loops you may also end the loop or skip the current iteration using the `<@continue` and `<@break` directives, as follows:
 
     <@foreach ($users as $user)
         <@if ($user->status == 1)
@@ -147,6 +150,7 @@ When using loops you may also end the loop or skip the current iteration using t
         <@endif
     
     <li>{{ $user->name }}</li>
+
         <@if ($user->count == 10)
             <@break
         <@endif
@@ -190,3 +194,12 @@ In some situations, it's useful to embed PHP code into your views. You can use t
     <@php
         phpinfo()
     <@endphp
+
+<a name="building-layouts"></a>
+## Building Layouts
+
+<a name="defining-layouts-template-inheritance"></a>
+### Defining To Layouts Template Inheritance
+
+Of the primary benefits of using Plaze are template inheritance and sections.
+
