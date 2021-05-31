@@ -240,8 +240,10 @@ When defining a child view, use the `<@extends` Plaze directive to specify which
         <@parent
 
         <p>This is appended to the master sidebar</p>
-    <@stop>
+    <@stop
 
     <@section('content')
         <p>This is content body</p>
-    <@stop>
+    <@stop
+
+In the example above, the sidebar section is utilizing the `<@parent` directive to append (rather than overwriting) content to the layout's sidebar. This directive will be replaced by the content of the layout when the view is rendered.
