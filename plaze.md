@@ -253,3 +253,7 @@ In the example above, the sidebar section is utilizing the `<@parent` directive 
 The `<@give` directive also accepts a default value as the second parameter. This value is shown if the section being yielded is not defined in the inherited design, as follows:
 
     <@give('content', 'Default content')
+
+<a name="defining-layouts-components"></a>
+#### Defining To Layouts Components
+
