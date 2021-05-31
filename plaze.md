@@ -248,4 +248,4 @@ When defining a child view, use the `<@extends` Plaze directive to specify which
 
 In the example above, the sidebar section is utilizing the `<@parent` directive to append (rather than overwriting) content to the layout's sidebar. This directive will be replaced by the content of the layout when the view is rendered.
 
-<{tip} Contrary to the previous example, this sidebar section ends with `<@endsection` instead of `<@show`. The `<@endsection` directive will only define a section while `<@show` will define and immediately give the section.
+>{tip} Contrary to the previous example, this sidebar section ends with `<@endsection` instead of `<@show`. The `<@endsection` directive will only define a section while `<@show` will define and immediately give the section.
