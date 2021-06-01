@@ -271,3 +271,23 @@ The `{{ $slot }}` variable will contain the content we wish to inject into the c
         <strong>Whoops!</strong> Something went wrong!
     <@endcomponent
 
+Sometimes it is very useful to define multiple slots for a component. Now, we are going to modify our alert component to allow the injection of a "title", as follows: 
+
+    {{-- Path: resources/views/alert.plaze.php --}}
+
+    <div class="alert alert-danger">
+        <div class="alert-title">{{ $title }}</div>
+
+        {{ $slot }}
+    </div>
+
+Now, we can inject content into the named slot using the `<@slot` directive. Any content not within a `<@slot` directive will be passed to the component in the `$slot` variable, as follows:
+
+    <@component('alert')
+        <@slot('title')
+        
+            Forbidden
+        <@endslot
+        
+        You are not allowed to access this resource!
+    <@endcomponent
