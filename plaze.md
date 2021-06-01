@@ -257,3 +257,4 @@ The `<@give` directive also accepts a default value as the second parameter. Thi
 <a name="defining-layouts-components"></a>
 #### Defining To Layouts Components
 
+Components and grooves allow benefits similar to sections and layouts. 
