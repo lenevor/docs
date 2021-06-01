@@ -257,4 +257,17 @@ The `<@give` directive also accepts a default value as the second parameter. Thi
 <a name="defining-layouts-components"></a>
 #### Defining To Layouts Components
 
-Components and grooves allow benefits similar to sections and layouts. 
+`Components` and `slots` allow benefits similar to `sections` and `layouts`. `Components` and `slots` allow similar benefits to sections and layouts. However, the `components` and the `slots` have the particularity of being reused in any part of one or in various web applications: 
+
+    {{-- Path: resources/views/alert.plaze.php --}}
+
+    <div class="alert alert-danger">
+        {{ $slot }}
+    </div>
+
+The `{{ $slot }}` variable will contain the content we wish to inject into the component. Now, to construct this component, we can use the `<@component` Plaze directive, as follows:
+
+    <@component('alert')
+        <strong>Whoops!</strong> Something went wrong!
+    <@endcomponent
+
