@@ -11,6 +11,7 @@
 - [Building Layouts](#building-layouts)
     - [Defining To Layouts Template Inheritance](#defining-layouts-template-inheritance)
     - [Defining To Layouts Components](#defining-layouts-components)
+- [Debugging Directive](#debugging-directive)
 
 <a name="introduction"></a>
 ## Introduction
@@ -291,3 +292,7 @@ Now, we can inject content into the named slot using the `<@slot` directive. Any
         
         You are not allowed to access this resource!
     <@endcomponent
+
+<a name="debugging-directive"></a>
+## Debugging Directive
+
