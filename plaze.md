@@ -12,6 +12,9 @@
     - [Defining To Layouts Template Inheritance](#defining-layouts-template-inheritance)
     - [Defining To Layouts Components](#defining-layouts-components)
 - [Debugging Directive](#debugging-directive)
+- [Forms](#forms)
+    - [CSRF Field](#csrf-field)
+    - [Method Field](#method-field)
 
 <a name="introduction"></a>
 ## Introduction
@@ -295,4 +298,29 @@ Now, we can inject content into the named slot using the `<@slot` directive. Any
 
 <a name="debugging-directive"></a>
 ## Debugging Directive
+
+With the directive `<@dd` you can return results of variables, arrays and direct APIs in the HTML, in order to escape correct values according to the query that is being carried out, as follows: 
+
+    <pre>
+        <@dd($result)
+    </pre>
+
+<a name="forms"></a>
+## Forms
+
+<a name="csrf-field"></a>
+### CSRF Field 
+
+Anytime you define an HTML form in your application, you should include a hidden CSRF token field in the form so that the CSRF protection middleware can validate the request. You may use the `<@csrf` Plaze directive to generate the token field, as follows:
+
+    <form action="/user" method="POST">
+        <@csrf
+
+        ...
+    </form>
+
+<a name="method-field"></a>
+### Method Field
+
+
 
