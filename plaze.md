@@ -322,7 +322,7 @@ Anytime you define an HTML form in your application, you should include a hidden
 <a name="method-field"></a>
 ### Method Field
 
-When trying to use the `PUT`, 'PATCH' or 'DELETE' requests they cannot be used in HTML forms directly, to carry out these requests you will need to add a hidden` _method` field to spoof these HTML verbs. The `<@ method` plaze directive can create this field for you, as follows: 
+When trying to use the `PUT`, `PATCH` or `DELETE` requests they cannot be used in HTML forms directly, to carry out these requests you will need to add a hidden `_method` field to spoof these HTML verbs. The `<@method` plaze directive can create this field for you, as follows: 
 
     <form action="/user/guest" method="POST">
         <@method('PUT')
