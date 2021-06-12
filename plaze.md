@@ -15,6 +15,7 @@
 - [Forms](#forms)
     - [CSRF Field](#csrf-field)
     - [Method Field](#method-field)
+- [Starting Stacks](#starting-stacks)
 
 <a name="introduction"></a>
 ## Introduction
@@ -190,6 +191,10 @@ Even though the included view will inherit all data available in the parent view
 
     <@include ('partial.menu', ['name' => 'about'])
 
+If you try to include a view that does not exist with the `<@include` directive, Lenevor will display an error. However, if you would like to include a view that may or may not be present, you should use the `<@includeIf` directive, as follows: 
+
+    @includeIf('partial.menu', ['name' => 'about'])
+
 <a name="raw-php"></a>
 ### Raw PHP
 
@@ -329,3 +334,33 @@ When trying to use the `PUT`, `PATCH` or `DELETE` requests they cannot be used i
 
         ...
     </form>
+
+<a name="starting-stacks"></a>
+## Starting Stacks
+
+In `Plaze` allows you to call named stacks where can be rendered somewhere in another view or layout. Therefore, it's particularly useful for specify any Javascript libraries that is required by your child views, as follows: 
+
+    <@push('scripts')
+        <script src="/example.js"></script>
+    <@endpush
+
+You may push to a stack as many times as needed. To render the complete contents of the stack, simply is naming the stack to the `<@stack` directive, as follows:
+
+    <html>
+        <head>
+            <@stack('scripts)
+        </head>
+        ...
+    </html>
+
+If you choose to prepend content onto the beginning of a stack, you should use the `<@prepend` directive, as follows: 
+
+    <@push('script)
+        // This will be second...
+    <@endpush
+
+    <@prepend('script)
+        // This will be first...
+    <@endprepend
+
+    
