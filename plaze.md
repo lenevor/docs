@@ -193,7 +193,7 @@ Even though the included view will inherit all data available in the parent view
 
 If you try to include a view that does not exist with the `<@include` directive, Lenevor will display an error. However, if you would like to include a view that may or may not be present, you should use the `<@includeIf` directive, as follows: 
 
-    @includeIf('partial.menu', ['name' => 'about'])
+    <@includeIf('partial.menu', ['name' => 'about'])
 
 <a name="raw-php"></a>
 ### Raw PHP
