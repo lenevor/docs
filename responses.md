@@ -11,4 +11,9 @@ All routes and controllers should return a response to be sent to the user's bro
         return 'This is example...';
     });
 
+You may also return arrays. The framework will automatically convert the array you are working with into a JSON response, as follows: 
+
+    Route::get('/example', function () {
+        return [1, 2, 3];
+    });
 
