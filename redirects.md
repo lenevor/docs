@@ -6,9 +6,9 @@
 - [Redirecting To Responses](#redirecting-responses)
     - [Redirecting The Responses To Home Route](#redirecting-home-route)
     - [Redirecting The Responses To Back Route](#redirecting-back-route)
-    - [Redirecting the Responses To Refresh Route](#redirecting-refresh-route)
-    - [Redirecting the Responses To Away Route](#redirecting-away-route)
-    - [Redirecting the Responses To Secure Route](#redirecting-secure-route)
+    - [Redirecting The Responses To Refresh Route](#redirecting-refresh-route)
+    - [Redirecting The Responses To Away Route](#redirecting-away-route)
+    - [Redirecting The Responses To Secure Route](#redirecting-secure-route)
 
 <a name="creating-redirects"></a>
 ## Creating Redirects
@@ -67,7 +67,7 @@ Create a new redirect response to the previous location:
     return redirect()->back();
 
 <a name="redirecting-refresh-route"></a>
-### Redirecting the Responses To Refresh Route
+### Redirecting The Responses To Refresh Route
 
 Create a new redirect response to the current URI:
 
@@ -81,7 +81,7 @@ Create a new redirect response to an external URL (no validation):
     return redirect()->away('https://www.google.com');
 
 <a name="redirecting-secure-route"></a>
-### Redirecting the Responses To Secure Route
+### Redirecting The Responses To Secure Route
 
 Create a new redirect response to the given HTTPS path:
 
