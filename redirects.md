@@ -4,11 +4,11 @@
 - [Redirecting To Named Routes](#redirecting-named-routes)
 - [Redirecting To Controller Actions](#redirecting-controller-actions)
 - [Redirecting To Responses](#redirecting-responses)
-    - [Redirecting To Responses To Home Route](#redirecting-home-route)
-    - [Redirecting To Responses To Back Route](#redirecting-back-route)
-    - [Redirecting To Responses To Refresh Route](#redirecting-refresh-route)
-    - [Redirecting To Responses To Away Route](#redirecting-away-route)
-    - [Redirecting To Responses To Secure Route](#redirecting-secure-route)
+    - [Redirecting The Responses To Home Route](#redirecting-home-route)
+    - [Redirecting The Responses To Back Route](#redirecting-back-route)
+    - [Redirecting the Responses To Refresh Route](#redirecting-refresh-route)
+    - [Redirecting the Responses To Away Route](#redirecting-away-route)
+    - [Redirecting the Responses To Secure Route](#redirecting-secure-route)
 
 <a name="creating-redirects"></a>
 ## Creating Redirects
@@ -48,40 +48,40 @@ If your controller route requires parameters, you may pass them as the second ar
     );
 
 <a name="redirecting-responses"></a>
-## Redirecting reponses
+## Redirecting To Reponses
 
 Returns redirect of the routes defined by the user. You can redirecting the different routes the methods of `Redirector` class.
 
 <a name="redirecting-home-route"></a>
-### Redirecting Home Route
+### Redirecting The Responses To Home Route
 
 Creates a new redirect response to the `home` route:
 
     return redirect()->home();
 
 <a name="redirecting-back-route"></a>
-### Redirecting Back Route
+### Redirecting The Responses To Back Route
 
 Create a new redirect response to the previous location:
 
     return redirect()->back();
 
 <a name="redirecting-refresh-route"></a>
-### Redirecting Refresh Route
+### Redirecting the Responses To Refresh Route
 
 Create a new redirect response to the current URI:
 
     return redirect()->refresh();
 
 <a name="redirecting-away-route"></a>
-### Redirecting Away Route
+### Redirecting the Responses To Away Route
 
 Create a new redirect response to an external URL (no validation):
 
     return redirect()->away('https://www.google.com');
 
 <a name="redirecting-secure-route"></a>
-### Redirecting Secure Route
+### Redirecting the Responses To Secure Route
 
 Create a new redirect response to the given HTTPS path:
 
