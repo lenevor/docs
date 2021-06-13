@@ -38,6 +38,6 @@ It will not only return strings or arrays, also you will be returning full `Sysc
 Returning a full response instance allows you to customize the response's HTTP status code and headers. You can use the `Syscodes\Support\Facades\Response` facade or the `response` helper. Which provides a wide variety of methods for building HTTP responses, as follows: 
 
     Route::get('/example', function () {
-        return Response('Hello world', 200)
+        return response('Hello world', 200)
                         ->header('content-type', 'text-plain');
     });
