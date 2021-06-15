@@ -3,6 +3,9 @@
 - [Working with Responses](#working-with-responses)
     - [Static Method To Response Render](#static-method-response-render)
     - [Response Objects](#response-objects)
+- [Other Response Types](#other-response-types)
+    - [View Responses](#view-responses)
+    - [JSON Responses](#json-responses)
 
 <a name="working-with-responses"></a>
 ## Working with Responses
@@ -41,3 +44,8 @@ Returning a full response instance allows you to customize the response's HTTP s
         return response('Hello world', 200)
                         ->header('content-type', 'text-plain');
     });
+
+<a name="other-response-types"></a>
+### Other Response Types
+
+The response helper allows you to generate other types of response instances. Therefore, when the response helper is called without arguments, it returns an implementation of the `Syscodes\Contracts\Routing\RouteResponse` [contract](/docs/blob/master/contracts) is returned. This contract provides several helpful methods for generating responses.
