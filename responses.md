@@ -43,7 +43,7 @@ Returning a full response instance allows you to customize the response's HTTP s
 
     Route::get('/example', function () {
         return response('Hello world', 200)
-                    ->header('content-type', 'text-plain');
+                    ->header('content-type', 'text/plain');
     });
 
 <a name="other-response-types"></a>
@@ -76,12 +76,12 @@ The `json` method will automatically set the `Content-Type` header to `applicati
 If you need not to return content from the response's but instead controlling the response's status and header  you may do it with the `noContent` method, but also may implement the setContent method of the `Response` class to return a view, as follows:
 
     return response()
-                ->noContent(200, ['content-type' => 'text-plain'])
+                ->noContent(200, ['content-type' => 'text/plain'])
                 ->setContent('welcome');
 
 Also adding the `view` helper, as follows:
 
     return response()
-                ->noContent(200, ['content-type' => 'text-plain'])
+                ->noContent(200, ['content-type' => 'text/html'])
                 ->setContent(view('welcome'));
 
