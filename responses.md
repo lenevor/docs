@@ -43,7 +43,7 @@ Returning a full response instance allows you to customize the response's HTTP s
 
     Route::get('/example', function () {
         return response('Hello world', 200)
-                        ->header('content-type', 'text-plain');
+                    ->header('content-type', 'text-plain');
     });
 
 <a name="other-response-types"></a>
@@ -55,6 +55,9 @@ The response helper allows you to generate other types of response instances. Th
 ### View Responses
 
 If you need control over the response's status and headers but also need to return a [view](/views.md) as the response's content, you should use the `view` method, as follows: 
+
+    return response('Hello world', 200)
+                ->header('content-type', 'text-plain');
 
 <a name="json-responses"></a>
 ### JSON Responses
