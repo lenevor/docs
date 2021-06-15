@@ -48,4 +48,4 @@ Returning a full response instance allows you to customize the response's HTTP s
 <a name="other-response-types"></a>
 ### Other Response Types
 
-The response helper allows you to generate other types of response instances. Therefore, when the response helper is called without arguments, it returns an implementation of the `Syscodes\Contracts\Routing\RouteResponse` [contract](/contracts) is returned. This contract provides several helpful methods for generating responses.
+The response helper allows you to generate other types of response instances. Therefore, when the response helper is called without arguments, it returns an implementation of the `Syscodes\Contracts\Routing\RouteResponse` [contract](/contracts.md) is returned. This contract provides several helpful methods for generating responses.
