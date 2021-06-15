@@ -56,8 +56,9 @@ The response helper allows you to generate other types of response instances. Th
 
 If you need control over the response's status and headers but also need to return a [view](/views.md) as the response's content, you should use the `view` method, as follows: 
 
-    return response('Hello world', 200)
-                ->header('content-type', 'text-plain');
+    return response()
+                ->view('welcome', $data, 200)
+                ->header('content-type', $type);
 
 <a name="json-responses"></a>
 ### JSON Responses
