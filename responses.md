@@ -84,4 +84,3 @@ Also adding the `view` helper, as follows:
     return response()
                 ->noContent(200, ['content-type' => 'text/html'])
                 ->setContent(view('welcome'));
-
