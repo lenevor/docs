@@ -65,12 +65,23 @@ If you need control over the response's status and headers but also need to retu
 
 The `json` method will automatically set the `Content-Type` header to `application/json`, as well as convert the given array to JSON using the `json_encode` PHP function, as follow:
 
-    return response()
-                ->json([
-                    'name' => 'Alexander'
-                    'Occupation' => 'Full-Stack Developer'
-                ]);
+    return response()->json([
+            'name' => 'Alexander'
+            'Occupation' => 'Full-Stack Developer'
+        ]);
 
 <a name="no-content-responses"></a>
 ### No Content To Responses
+
+If you need not to return content from the response's but instead controlling the response's status and header  you may do it with the `noContent` method, but also may implement the setContent method of the `Response` class to return a view, as follows:
+
+    return response()
+                ->noContent(200, ['content-type' => 'text-plain'])
+                ->setContent('welcome');
+
+Also adding the `view` helper, as follows:
+
+    return response()
+                ->noContent(200, ['content-type' => 'text-plain'])
+                ->setContent(view('welcome'));
 
