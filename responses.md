@@ -6,6 +6,7 @@
 - [Other Response Types](#other-response-types)
     - [View Responses](#view-responses)
     - [JSON Responses](#json-responses)
+    - [No Content To Responses](#no-content-responses)
 
 <a name="working-with-responses"></a>
 ## Working with Responses
@@ -49,3 +50,16 @@ Returning a full response instance allows you to customize the response's HTTP s
 ## Other Response Types
 
 The response helper allows you to generate other types of response instances. Therefore, when the response helper is called without arguments, it returns an implementation of the `Syscodes\Contracts\Routing\RouteResponse` [contract](/contracts.md) is returned. This contract provides several helpful methods for generating responses.
+
+<a name="view-responses"></a>
+### View Responses
+
+If you need control over the response's status and headers but also need to return the view as the response's content, you should use the [view](/views.md) method, as follows: 
+
+<a name="json-responses"></a>
+### JSON Responses
+
+
+
+<a name="no-content-responses"></a>
+### No Content To Responses
