@@ -6,6 +6,7 @@
 - [Other Response Types](#other-response-types)
     - [View Responses](#view-responses)
     - [JSON Responses](#json-responses)
+    - [No Content To Responses](#no-content-responses)
 
 <a name="working-with-responses"></a>
 ## Working with Responses
@@ -42,10 +43,45 @@ Returning a full response instance allows you to customize the response's HTTP s
 
     Route::get('/example', function () {
         return response('Hello world', 200)
-                        ->header('content-type', 'text-plain');
+                    ->header('content-type', 'text/plain');
     });
 
 <a name="other-response-types"></a>
-### Other Response Types
+## Other Response Types
 
 The response helper allows you to generate other types of response instances. Therefore, when the response helper is called without arguments, it returns an implementation of the `Syscodes\Contracts\Routing\RouteResponse` [contract](/contracts.md) is returned. This contract provides several helpful methods for generating responses.
+
+<a name="view-responses"></a>
+### View Responses
+
+If you need control over the response's status and headers but also need to return a [view](/views.md) as the response's content, you should use the `view` method, as follows: 
+
+    return response()
+                ->view('welcome', $data, 200)
+                ->header('content-type', $type);
+
+<a name="json-responses"></a>
+### JSON Responses
+
+The `json` method will automatically set the `Content-Type` header to `application/json`, as well as convert the given array to JSON using the `json_encode` PHP function, as follow:
+
+    return response()->json([
+            'name' => 'Alexander'
+            'Occupation' => 'Full-Stack Developer'
+        ]);
+
+<a name="no-content-responses"></a>
+### No Content To Responses
+
+If you need not to return content from the response's but instead controlling the response's status and header  you may do it with the `noContent` method, but also may implement the setContent method of the `Response` class to return a view, as follows:
+
+    return response()
+                ->noContent(200, ['content-type' => 'text/plain'])
+                ->setContent('welcome');
+
+Also adding the `view` helper, as follows:
+
+    return response()
+                ->noContent(200, ['content-type' => 'text/html'])
+                ->setContent(view('welcome'));
+
