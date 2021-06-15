@@ -54,7 +54,7 @@ The response helper allows you to generate other types of response instances. Th
 <a name="view-responses"></a>
 ### View Responses
 
-If you need control over the response's status and headers but also need to return the [view](/views.md) as the response's content, you should use the `view` method, as follows: 
+If you need control over the response's status and headers but also need to return a [view](/views.md) as the response's content, you should use the `view` method, as follows: 
 
 <a name="json-responses"></a>
 ### JSON Responses
