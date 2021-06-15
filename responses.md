@@ -63,7 +63,14 @@ If you need control over the response's status and headers but also need to retu
 <a name="json-responses"></a>
 ### JSON Responses
 
+The `json` method will automatically set the `Content-Type` header to `application/json`, as well as convert the given array to JSON using the `json_encode` PHP function, as follow:
 
+    return response()
+                ->json([
+                    'name' => 'Alexander'
+                    'Occupation' => 'Full-Stack Developer'
+                ]);
 
 <a name="no-content-responses"></a>
 ### No Content To Responses
+
