@@ -1,6 +1,7 @@
 # Service Container
 
 - [Introduction](#introduction)
+    - [Inject Service Container In Route](#inject-service-container-route)
 
 <a name="introduction"></a>
 ## Introduction
@@ -52,6 +53,10 @@ Let's look at a simple example:
         }
     }
 
-In this example, the `UserController` must retrieve data from a language that the user chooses. Therefore, we will inject a service that can recover the language data through `Request`.
+In this example, the `UserController` needs to retrieve data from a language that the user chooses. So, we will inject a service that may recover the language data through `Request`.
 
-Knowing with deep The Lenevor service container is essential to build powerful and robust applications, as well as to contribute to the core of Lenevor. 
+Understanding of the Lenevor service container is essential to building a powerful and robust applications, as well as for contributing to Lenevor the core itself. 
+
+<a name="inject-service-container-route"></a>
+### Inject Service Container In Route
+
