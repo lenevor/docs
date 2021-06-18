@@ -51,3 +51,7 @@ Let's look at a simple example:
             return view('user.locale', ['lang' => $lang]);
         }
     }
+
+In this example, the `UserController` must retrieve data from a language that the user chooses. Therefore, we will inject a service that can recover the language data through `Request`.
+
+Knowing with deep The Lenevor service container is essential to build powerful and robust applications, as well as to contribute to the core of Lenevor. 
