@@ -60,3 +60,10 @@ Understanding of the Lenevor service container is essential to building a powerf
 <a name="inject-service-container-route"></a>
 ### Inject Service Container In Route
 
+You will often type-hint  dependencies on route, controllers, event listeners, and anywhere in an application without ever manually interacting with the container. For example, you might type-hint the an instance of the object `Syscodes \ Http \ Request` in the definition of a route to easily access the current request. Even though we never have to interact with the container, as follows:
+
+    use Syscodes\Http\Request;
+
+    Route::get('/', function (Request $request) {
+        // ...
+    });
