@@ -2,6 +2,11 @@
 
 - [Introduction](#introduction)
     - [Inject Service Container In Route](#inject-service-container-route)
+- [Binding](#binding)
+    - [Simple Bindings](#simple-bindings)
+    - [Binding A Singleton](#binding-singleton)
+    - [Binding Instances](#binding-instances)
+    - [Extending Bindings](#extending-bindings)
 
 <a name="introduction"></a>
 ## Introduction
@@ -67,3 +72,4 @@ You will often type-hint  dependencies on route, controllers, event listeners, a
     Route::get('/', function (Request $request) {
         // ...
     });
+
