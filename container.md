@@ -96,4 +96,16 @@ As mentioned above, it will typically be interacting with the container within s
         // ...
     });
 
->{tip} For the classes it is not necessary to force them to have dependence on any interface in the container. By making it clearer, the container does not need to be instructed on how to build these objects, since it may automatically resolve these objects using the reflection. 
+>{tip} For the classes it is not necessary to force them to have dependence on any interface in the container. By making it clearer, the container does not need to be instructed on how to build these objects, since it may automatically resolve these objects using the reflection.
+
+<a name="binding-singleton"></a>
+### Binding A Singleton
+
+Which the `singleton` method bind a class or interface in the container that should be resolved only once. When once a singleton binding has been resolved, the same object instance will begin to return on subsequent calls into the container, as follows: 
+
+    use App\Services\Music;
+    use App\Services\Parser;
+
+    $this->app->singleton(Music::class, function ($app) {
+        return new Music($app->make(Parser::class));
+    });
