@@ -65,7 +65,7 @@ Understanding of the Lenevor service container is essential to building a powerf
 <a name="inject-service-container-route"></a>
 ### Inject Service Container In Route
 
-You will often type-hint  dependencies on route, controllers, event listeners, and anywhere in an application without ever manually interacting with the container. For example, you might type-hint the an instance of the object `Syscodes \ Http \ Request` in the definition of a route to easily access the current request. Even though we never have to interact with the container, as follows:
+You will often type-hint  dependencies on route, controllers, event listeners, and anywhere in an application without ever manually interacting with the container. For example, you might type-hint the an instance of the object `Syscodes\Http\Request` in the definition of a route to easily access the current request. Even though we never have to interact with the container, as follows:
 
     use Syscodes\Http\Request;
 
@@ -73,3 +73,27 @@ You will often type-hint  dependencies on route, controllers, event listeners, a
         // ...
     });
 
+<a name="binding"></a>
+## Binding
+
+Almost always the container links of your service are registered within the service providers.
+
+In the service provider, you have access to the container through the `$this->app` property. We may register a binding using the `bind` method, passing the name of the class or the interface name that is desired together with the closure that returns an instance of the class, as follows:
+
+    use App\Services\Music;
+    use App\Services\Parser;
+
+    $this->app->bind(Music::class, function ($app) {
+        return new Music($app->make(Parser::class));
+    });
+
+As mentioned above, it will typically be interacting with the container within service providers; However, if you would like to interact with the container outside of a service provider, you may do so via the `app` facade, as follows: 
+
+    use App\Services\Music;
+    use Syscodes\Support\Facades\App;
+
+    App::bind(Music::class, function ($app) {
+        // ...
+    });
+
+>{tip} For the classes it is not necessary to force them to have dependence on any interface in the container. By making it clearer, the container does not need to be instructed on how to build these objects, since it may automatically resolve these objects using the reflection. 
