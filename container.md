@@ -109,3 +109,13 @@ Which the `singleton` method bind a class or interface in the container that sho
     $this->app->singleton(Music::class, function ($app) {
         return new Music($app->make(Parser::class));
     });
+
+<a name="binding-instances"></a>
+### Binding Instances
+
+You may also bind an existing object instance into the container using the `instance` method. The instance method will always be returned on subsequent calls to the container, as follows: 
+
+    use App\Services\Music;
+    use App\Services\Parser;
+
+    $this->app->instance(Music::class, new Parser);
