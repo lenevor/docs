@@ -237,7 +237,7 @@ Lenevor's service container implements the [PSR-11](https://github.com/php-fig/f
     use Psr\Container\ContainerInterface;
     
     Route::get('/', function (ContainerInterface $container) {
-        $service = $container->get(Music:class);
+        $service = $container->get(Music::class);
         
         //
     });
