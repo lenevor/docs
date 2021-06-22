@@ -178,3 +178,51 @@ Also if you would the Lenevor container instance to be injected into a class tha
     {
         $this->container = $container;
     }
+
+<a name="automatic-injection">
+### Automatic Injection
+
+Importantly, you may type-hint the dependency on the constructor of a class that is resolved the container, including controllers, event listeners, middleware, and more. In practice, this is how most of your objects should be resolved by the container. As example, you may suggest in code that a class instance defined be in parameter from the controller's constructor. 
+
+This class will be resolved and injected automatically into the class, as follows: 
+
+    <?php
+
+    namespace App\Http\Controllers;
+
+    use App\Http\Controller;
+    use Syscodes\Http\Request;
+
+    class UserController extends Controller
+    {
+        /**
+         * The HTTP Request implementation.
+         * 
+         * @var \Syscodes\Http\Request $request
+         */
+        protected $request;
+
+        /**
+         * Constructor. Create a new Controller instance.
+         *
+         * @param  \Syscodes\Http\Request  $request
+         * 
+         * @return void
+         */
+        public function __construct(Request $request)
+        {
+            $this->request = $request;
+        }
+
+        /**
+         * Show the user with the given ID.
+         * 
+         * @param  string  $id
+         *
+         * @return \Syscodes\Http\Response
+         */
+        public function show($id)
+        {
+            //
+        }
+    }
