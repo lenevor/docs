@@ -122,3 +122,12 @@ You may also bind an existing object instance into the container using the `inst
     use App\Services\Parser;
 
     $this->app->instance(Music::class, new Parser);
+
+<a name="extending-bindings"></a>
+### Extending Bindings
+
+The `extend` method allows modifying services that have been resolved. For example, when a service is resolved, you may run additional code to decorate or configure the service. The `extend` method accepts a closure and returns the modified service as its only argument. Therefore, the closure receives the service that is being resolved and the container instance, as follows: 
+
+    $this->app->extend('Music::class', function ($service, $app) {
+        return new DecoratedParser($service);
+    });
