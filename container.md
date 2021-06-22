@@ -7,6 +7,9 @@
     - [Binding A Singleton](#binding-singleton)
     - [Binding Instances](#binding-instances)
     - [Extending Bindings](#extending-bindings)
+- [Resolving](#resolving)
+    - [Make Method](#make-method)
+    - [Automatic Injection](#automatic-injection)
 
 <a name="introduction"></a>
 ## Introduction
@@ -131,3 +134,22 @@ The `extend` method allows modifying services that have been resolved. For examp
     $this->app->extend('Music::class', function ($service, $app) {
         return new DecoratedParser($service);
     });
+
+<a name="resolving"></a>
+## Resolving
+
+<a name="make-method"></a>
+## Make Method
+
+The `make` method allows you to resolve a class instance from the container. This `make` method accepts the name of the class or interface you wish to resolve, as follows: 
+
+    use App\Services\Music;
+
+    $music = $this->app->make(Music::class);
+
+If instead you are outside of a service provider in a location of your code where does not have access the `$this->app` variable, then you may use the `App` facade to resolve a class instance from the container, as follows: 
+
+    use App\Services\Music;}
+    use Syscodes\Support\Facades\App;
+
+    $music = App::make(Music::class);
