@@ -150,7 +150,7 @@ The `make` method allows you to resolve a class instance from the container. Thi
 
 If instead you are outside of a service provider in a location of your code where does not have access the `$this->app` variable, then you may use the `App` facade to resolve a class instance from the container, as follows: 
 
-    use App\Services\Music;}
+    use App\Services\Music;
     use Syscodes\Support\Facades\App;
 
     $music = App::make(Music::class);
