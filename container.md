@@ -76,6 +76,9 @@ You will often type-hint  dependencies on route, controllers, event listeners, a
 <a name="binding"></a>
 ## Binding
 
+<a name="simple-bindings"></a>
+### Simple Bindings
+
 Almost always the container links of your service are registered within the service providers.
 
 In the service provider, you have access to the container through the `$this->app` property. We may register a binding using the `bind` method, passing the name of the class or the interface name that is desired together with the closure that returns an instance of the class, as follows:
