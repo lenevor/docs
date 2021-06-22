@@ -10,6 +10,7 @@
 - [Resolving](#resolving)
     - [Make Method](#make-method)
     - [Automatic Injection](#automatic-injection)
+- [PSR-11](#psr-11)
 
 <a name="introduction"></a>
 ## Introduction
@@ -226,3 +227,19 @@ This class will be resolved and injected automatically into the class, as follow
             //
         }
     }
+
+<a name="psr-11"></a>
+## PSR-11
+
+Lenevor's service container implements the [PSR-11](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-11-container.md) interface, as follows:
+
+    use App\Services\Music;
+    use Psr\Container\ContainerInterface;
+    
+    Route::get('/', function (ContainerInterface $container) {
+        $service = $container->get(Music:class);
+        
+        //
+    });
+
+An exception is thrown  if the given identifier can't be resolved. The exception will be an instance of `Psr\Container\NotFoundExceptionInterface` if the identifier was never bound. Now if the identifier was bound but was failed to be resolved, then an instance of `Psr\Container\ContainerExceptionInterface` will be thrown. 
