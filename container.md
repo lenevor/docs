@@ -153,3 +153,28 @@ If instead you are outside of a service provider in a location of your code wher
     use Syscodes\Support\Facades\App;
 
     $music = App::make(Music::class);
+
+Also if you would the Lenevor container instance to be injected into a class that is being resolved by the container, you may specify the argument with the `Syscodes\Container\Container`class on your class constructor, as follows:
+
+    use Syscodes\Container\Container;
+
+    ...
+
+    /**
+     * The Container instance.
+     *
+     * @var \Syscodes\Container\Container $container
+     */
+    protected $container;
+
+    /**
+     * Constructor. Create a new class instance.
+     *
+     * @param  \Syscodes\Container\Container  $container
+     *
+     * @return void
+     */
+    public function __construct(Container $container)
+    {
+        $this->container = $container;
+    }
