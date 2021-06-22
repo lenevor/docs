@@ -139,7 +139,7 @@ The `extend` method allows modifying services that have been resolved. For examp
 ## Resolving
 
 <a name="make-method"></a>
-## Make Method
+### Make Method
 
 The `make` method allows you to resolve a class instance from the container. This `make` method accepts the name of the class or interface you wish to resolve, as follows: 
 
