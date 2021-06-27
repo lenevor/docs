@@ -3,6 +3,7 @@
 - [Introduction](#introduction)
 - [Using The Request](#using-request)
     - [Accessing The Request](#accessing-request)
+    - [Request Path](#request-path)
 
 <a name="introduction"></a>
 ## Introduction
@@ -40,3 +41,6 @@ Is obtained an instance of the HTTP request via dependency injection and is call
             //
         }
     }
+
+<a name="request-path"></a>
+### Request Path
