@@ -55,9 +55,49 @@ As specified previous, you may also suggest that the `Syscodes\Http\Request` cla
 
 The `Syscodes\Http\Request` class allows a wide variety of methods for examining the incoming and outgoing HTTP request. Below you are exposes the most important methods. 
 
-<a name="using-request-path">
+<a name="using-request-path"></a>
 #### Using The Request Path
 
-The `path` method returns the request's path information. For example,  if reception an incoming request is targed at `http://example.com/user/profile`, the `path` method will return `user/profile`, as follows: 
+The `path` method returns the request's path information. For example, if reception an incoming request is targed at `http://example.com/user/profile`, the `path` method will return `user/profile`, as follows: 
 
     $path = $request->path();
+
+<a name="using-request-decodedPath"></a>
+#### Using The Request DecodedPath
+
+The current `decoded path` info for a HTTP request:
+
+    $path = $request->decodedPath();
+
+<a name="using-inspecting-request-path-route"></a>
+#### Using Inspecting The Request Path / Route
+
+The `is` method allows you to verify if the incoming request path matches a given pattern. To do this, you may use the `*` character as a wildcard when utilizing this method, as follows:
+
+    if ($request->is('backend/*')) {
+        //
+    }
+
+Using the `routeIs` method, you may determine if the incoming request has matched a [named route](/routing.md#named-routes):
+
+    if ($request->routeIs('backend.*')) {
+        //
+    }
+
+<a name="using-request-url"></a>
+#### Using The Request URL
+
+If you to use the full URL of the incoming request you may use the `url` method in this case. This `url` method will return the URL without the query string, as follows:
+
+    $path = $request->url();
+
+<a name="using-request-method"></a>
+#### Using The Request Method
+
+The `method` method will return the HTTP verb for the request. You may use the `isMethod` method to verify that the HTTP verb matches a given string, as follows:
+
+    $method = $request->getMethod();
+
+    if ($request->setMethod('post')) {
+        //
+    }
