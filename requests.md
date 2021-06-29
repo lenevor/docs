@@ -52,3 +52,12 @@ As specified previous, you may also suggest that the `Syscodes\Http\Request` cla
 
 <a name="request-path"></a>
 ### Request Path
+
+The `Syscodes\Http\Request` class allows a wide variety of methods for examining the incoming and outgoing HTTP request. Below you are exposes the most important methods. 
+
+<a name="using-request-path">
+#### Using The Request Path
+
+The `path` method returns the request's path information. For example,  if reception an incoming request is targed at `http://example.com/user/profile`, the `path` method will return `user/profile`, as follows: 
+
+    $path = $request->path();
