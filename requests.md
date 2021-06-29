@@ -42,5 +42,13 @@ Is obtained an instance of the HTTP request via dependency injection and is call
         }
     }
 
+As specified previous, you may also suggest that the `Syscodes\Http\Request` class used on a route closure. The service container will automatically inject the incoming request into the request when it is executed, as follows:
+
+    use Syscodes\Http\Request;
+
+    Route::get('/', function (Request $request) {
+        //
+    });
+
 <a name="request-path"></a>
 ### Request Path
