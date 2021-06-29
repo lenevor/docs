@@ -94,7 +94,7 @@ If you to use the full URL of the incoming request you may use the `url` method 
 <a name="using-request-method"></a>
 #### Using The Request Method
 
-The `method` method will return the HTTP verb for the request. You may use the `isMethod` method to verify that the HTTP verb matches a given string, as follows:
+The `getMethod` method will return the HTTP verb for the request. You may use the `setMethod` method to verify that the HTTP verb matches a given string, as follows:
 
     $method = $request->getMethod();
 
