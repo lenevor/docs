@@ -4,6 +4,8 @@
 - [Using The Request](#using-request)
     - [Accessing The Request](#accessing-request)
     - [Request Path](#request-path)
+    - [Request Headers](#request-headers)
+- [Input](#input)
 
 <a name="introduction"></a>
 ## Introduction
