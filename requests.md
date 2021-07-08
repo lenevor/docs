@@ -6,6 +6,7 @@
     - [Request Path](#request-path)
     - [Request Headers](#request-headers)
 - [Input](#input)
+    - [Retrieving Input](#retrieving-input)
 
 <a name="introduction"></a>
 ## Introduction
@@ -103,3 +104,9 @@ The `getMethod` method will return the HTTP verb for the request. You may use th
     if ($request->setMethod('post')) {
         //
     }
+
+<a name="input"></a>
+## Input
+
+<a name="retrieving-input"></a>
+### Retrieving Input
