@@ -110,3 +110,10 @@ The `getMethod` method will return the HTTP verb for the request. You may use th
 
 <a name="retrieving-input"></a>
 ### Retrieving Input
+
+<a name="retrieving-all-input-data"></a>
+#### Retrieving All Input Data
+
+You may retrieve all of the incoming request's input data as an `array` using the `all` method, as follows:
+
+    $rq = $request->all();
