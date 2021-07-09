@@ -117,3 +117,8 @@ The `getMethod` method will return the HTTP verb for the request. You may use th
 You may retrieve all of the incoming request's input data as an `array` using the `all` method, as follows:
 
     $rq = $request->all();
+
+<a name="retrieving-input-value"></a>
+#### Retrieving An Input Value
+
+You may access all user `input` from the `Syscodes\Http\Request` instance without worrying about which HTTP verb was used for the request, as follows: 
