@@ -121,4 +121,6 @@ You may retrieve all of the incoming request's input data as an `array` using th
 <a name="retrieving-input-value"></a>
 #### Retrieving An Input Value
 
-You may access all user `input` from the `Syscodes\Http\Request` instance without worrying about which HTTP verb was used for the request, as follows: 
+You may access all user `input` from the `Syscodes\Http\Request` instance without worrying about which HTTP verb was used for the request, as follows:
+
+    $rq = $request->input('products');
