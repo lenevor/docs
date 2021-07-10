@@ -105,6 +105,21 @@ The `getMethod` method will return the HTTP verb for the request. You may use th
         //
     }
 
+<a name="request-headers"></a>
+### Request Headers 
+
+You may retrieve a request header from the `Syscodes\Http\Request` instance using the `header` method. If the header is not present on the request, `null` will be returned. However, the `header` method accepts an optional second argument that will be returned if the header is not present in the request, as follows:
+
+    $header = $request->header('X-Header-Name');
+
+    $header = $request->header('X-Header-Name', 'default');
+
+The `hasHeader` method may be used to determine if the request contains a given header, as follows:
+
+    if ($request->hasHeader('X-Header-Name')) {
+        //
+    }
+
 <a name="input"></a>
 ## Input
 
