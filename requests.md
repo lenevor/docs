@@ -120,6 +120,13 @@ The `hasHeader` method may be used to determine if the request contains a given 
         //
     }
 
+<a name="retrieving-json-input-values"></a>
+#### Retrieving JSON Input Values
+
+When sending `JSON` requests in your application, you may access the JSON data through the `input` method as long as the `Content-Type` header of the request is set to `application/json`. You may also use the "dot" syntax to retrieve values that are nested within JSON arrays, as follows:
+
+    $rq = $request->input('products.name');
+
 <a name="input"></a>
 ## Input
 
