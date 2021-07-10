@@ -123,4 +123,18 @@ You may retrieve all of the incoming request's input data as an `array` using th
 
 You may access all user `input` from the `Syscodes\Http\Request` instance without worrying about which HTTP verb was used for the request, as follows:
 
-    $rq = $request->input('products');
+    $products = $request->input('products');
+
+You may register a default value as the second argument to the input method. Said value will be returned if the requested input value is not present on the request, as follows: 
+
+    $products = $request->input('products', 'Web Application');
+
+When working with forms that contain array inputs use "dot" notation to access those arrays, as follows: 
+
+    $products = $request->input('products.id);
+
+    $products = $request->input('products.*.name');
+
+You may call the `input` method without any arguments to retrieve all of the input values as an associative array, as follows:
+
+    $rq = $request->input();
