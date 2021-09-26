@@ -10,7 +10,7 @@ Prime is the command line interface included in Lenevor. This file exists at the
 
     php prime list
 
-<img src="https://raw.githubusercontent.com/lenevor/art/main/logo-types/PNG/Console/prime-console-list.png" />
+<img src="https://drive.google.com/file/d/1D2cGwqXNziTEydV5F8_CjHg2_6-Rk1sc/view?usp=sharing" />
 
 <a name="writing-commands"></a>
 ## Writing Commands
