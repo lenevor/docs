@@ -8,7 +8,7 @@
 <a name="introduction"></a>
 ## Introduction
 
-Most modern web applications interact with a database. Lenevor makes interacting with databases simple across a variety of supported databases using raw SQL, a `fluent query builder`, and the `Erostrine ORM`. Currently, Lenevor provides support for four databases:
+Most modern web applications interact with a database. Lenevor makes interacting with databases simple across a variety of supported databases using raw SQL, a `Flowing Query Builder`, and the `Erostrine ORM`. Currently, Lenevor provides support for four databases:
 
 - MySQL 5.7+ 
 - PostgreSQL 9.6+
