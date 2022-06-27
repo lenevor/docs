@@ -4,6 +4,7 @@
     - [Configuration](#configuration)
 - [Interacting with The Session](#interacting-session)
     - [Retrieving Session Data](#retrieving-session-data)
+    - [Storing Data](#storing-data)
 
 
 <a name="introduction"></a>
@@ -81,6 +82,47 @@ You may use the global `session` PHP function to retrieve and store data in the 
         // Specifying a default value...
         $value = session('key', 'default');
 
-        // // Store a item of data in the session...
+        // Store a item of data in the session...
         session(['key' => 'value']);
     });
+
+<a name="retrieving-all-session-data"></a>
+#### Retrieving All Session Data
+
+If you would like to retrieve all the data in the session, you may use the all method:
+
+    $value = $request->session()->all();
+
+<a name="determining-item-exists-session">
+#### Determining If Item Exists In The Session
+
+To determine if an item is present in the session, you may use the has method. The has method returns true if the item is present and is not null:
+
+    if ($request->session()->has('key)) {
+        //
+    }
+
+<a name="storing-data"></a>
+### Storing Data
+
+For storing data in the session, you will available use the request instance's `put` method or the global `session` helper:
+
+    // Via a request instance...
+    $request->session()->put('key', 'value');
+
+    // Via the global "session" helper...
+    session(['key' => 'value']);
+
+<a name="push-new-value-session-data"></a>
+#### Push New Value To Session Data
+
+The push method is used to push a new value onto a session value that is an array. For example, if the `user.develop` key contains an array of `user.develop`, you can add a new value onto the array like so:
+
+    $request->session()->push('user.developers', 'backend');
+
+<a name="retrieving-deleting-item"></a>
+#### Retrieving & Deleting An Item
+
+The `pull` method will retrieve and delete an item from the session in a single statement:
+
+    $request->session()->pull('key', 'default);
