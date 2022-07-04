@@ -5,6 +5,7 @@
 - [Interacting with The Session](#interacting-session)
     - [Retrieving Session Data](#retrieving-session-data)
     - [Storing Data](#storing-data)
+    - [Flash Data](#flash-data)
 
 
 <a name="introduction"></a>
@@ -126,3 +127,10 @@ The push method is used to push a new value onto a session value that is an arra
 The `pull` method will retrieve and delete an item from the session in a single statement:
 
     $request->session()->pull('key', 'default);
+
+<a name="flash-data"></a>
+### Flash Data
+
+You may wish to store items in the session for the next request, this is made possible by the `flash` method. Flash data is primarily useful for short-lived status messages:
+
+    $request->session()->flash('status', 'You task was sucessful!');
