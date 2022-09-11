@@ -108,6 +108,10 @@ To retrieve translation strings from your language files simply use the `__` hel
 
     echo __('exception.enviroment');
 
+If you are using your default translation strings as your translation keys, you should pass the default translation of your string to the __ function:
+
+    echo __('I enjoy programming.');
+
 Again, if the translation string does not exist, the __ function will return the translation string key that it was given.
 
 If you are using the Plaze templating engine, you may use the {{ }} echo syntax to display the translation string:
