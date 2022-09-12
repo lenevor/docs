@@ -5,7 +5,7 @@
     - [The Register Method](#register-method)
     - [The Boot Method](#boot-method)
 - [Registering Providers](#registering-providers)
-- [Register Deferred Providers](#Register-deferred-providers)
+- [Register Deferred Providers](#register-deferred-providers)
 
 <a name="introduction"></a>
 ## Introduction
@@ -21,12 +21,12 @@ It is important to clarify, that you will learn to write your own service provid
 <a name="writing-service-provider"></a>
 ## Writing Service Provider
 
-All service providers extend the `Syscodes\Components\Support\ServiceProvider` class. Most service providers contain a register and a boot method. For the sake of understanding how the above methods work, you should onñy bind things into the service container, that is, you should never try to register event listeners, routes, or any other function inside the register method.
+All service providers extend the `Syscodes\Components\Support\ServiceProvider` class. Most service providers contain a `register` and a `boot` method. For the sake of understanding how the above methods work, you should onñy bind things into the service container, that is, you should never try to register event listeners, routes, or any other function inside the `register` method.
 
 <a name="register-method"></a>
 ### The Register Method
 
-As mentioned previously, whitin the register method, you should only bind things into the service container. You should never attempt to register event listeners, routes, or any other functions within the register method. Otherwise, you may accidentally use a service provided that is provided by a service provider which has not loaded yet.
+As mentioned previously, whitin the register method, you should only bind things into the [service container](/docs/{{version}}/container). You should never attempt to register event listeners, routes, or any other functions within the `register` method. Otherwise, you may accidentally use a service provided that is provided by a service provider which has not loaded yet.
 
 Within any of your service provider methods, you always have access to the `$app` property which provides access to the service container, like so:
 
@@ -54,4 +54,57 @@ Within any of your service provider methods, you always have access to the `$app
 
 > **Note**  
 > This service provider only defines a register method, and uses that method to define an implementation of `App\Library\Services\DemoOne` in the service container. If you're not yet familiar with Lenevor's service container, check out [its documentation](/docs/{{version}}/container).
+
+<a name="boot-method"></a>
+### The Boot Method
+
+The `boot` method is where you can extend the basic functionality of Lenevor. In this method, you can access all the services that were registered using the service provider's registration method. For example, if you want to register "parameters" of a route, you must do it in the `boot` method, using regular expressions you may filter all the parameters when they are going to be used in a specific route, in the following:
+
+    <?php
+
+    namespace App\Providers;
+
+    use Syscodes\Components\Support\ServiceProvider;
+
+    class ParameterServiceProvider extends ServiceProvider
+    {
+        /**
+         * Bootstrap any application services.
+         *
+         * @return void
+         */
+        public function boot()
+        {
+            Route::pattern('id', '[0-9]+');
+        }
+    }
+
+#### Boot Method Dependency Injection
+
+You may type-hint dependencies for your service provider's `boot` method. The [service container](/docs/{{version}}/container) will automatically inject any dependencies you need:
+
+    use Syscodes\Components\Contracts\Routing\RouteResponse;
+
+    public function boot(RouteResponse $response)
+    {
+        $response->macro('items', function ($value) {
+            //
+        });
+    }
+
+<a name="registering-providers"></a>
+### Registering Providers
+
+All service providers are registered in the `config/services.php` configuration file. This file contains a `providers` array where you can list the class names of your service providers. By default, a set of Lenevor core service providers are listed in this array. These providers bootstrap the core Lenevor components, such as the event listeners, database, cache, and others.
+
+To register your provider, add it to the array:
+
+    'providers' => [
+        // Other service providers
+        
+        App\Providers\CustomServiceProvider::class,
+    ],
+
+<a name="register-deferred-providers"></a>
+### Register Deferred Providers
 
