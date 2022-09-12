@@ -53,5 +53,5 @@ Within any of your service provider methods, you always have access to the `$app
     }
 
 > **Note**  
-> This service provider only defines a register method, and uses that method to define an implementation of `App\Library\Services\DemoOne` in the service container. If you're not yet familiar with Lenevor's service container, check out [its documentation](/docs/container).
+> This service provider only defines a register method, and uses that method to define an implementation of `App\Library\Services\DemoOne` in the service container. If you're not yet familiar with Lenevor's service container, check out [its documentation](/docs/{{version}}/container).
 
