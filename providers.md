@@ -108,3 +108,41 @@ To register your provider, add it to the array:
 <a name="register-deferred-providers"></a>
 ### Register Deferred Providers
 
+If your provider is only registering bindings in the [service container](/docs/{{version}}/container), you may choose to defer its registration until one of the registered bindings is actually needed. Deferring the loading of such a provider will improve the performance of your application, since it is not loaded from the filesystem on every request.
+
+Lenevor compiles and stores a list of all of the services supplied by deferred service providers, along with the name of their service provider class. Then, only when it tries to resolve one of these services, Lenevor load the service provider.
+
+To be able to defer the loading a provider, implement the `Syscodes\Components\Contracts\Support\Deferrable` interface and define a `provides` method. This method called `provides` should return the service container bindings registered by the provider, as follows:
+
+    <?php
+
+    namespace App\Providers;
+
+    use App\Library\Services\DemoOne;
+    use Syscodes\Components\Support\ServiceProvider;
+    use Syscodes\Components\Contracts\Support\Deferrable;
+
+    class CustomServiceProvider extends ServiceProvider implements Deferrable
+    {
+        /**
+         * Register any application services.
+         *
+         * @return void
+         */
+        public function register()
+        {
+            $this->app->singleton(DemoOne::class, function () {
+                return (new DemoOne)->starting();
+            });
+        }
+
+        /**
+         * Get the services provided by the provider.
+         *
+         * @return array
+         */
+        public function provides(): array
+        {
+            return [DemoOne::class];
+        }
+    }
