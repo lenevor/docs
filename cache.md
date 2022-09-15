@@ -14,7 +14,7 @@
 - [Cache Usage](#cache-usage)
     - [Obstaining A Cache Instance](#obstaining-cache-instance)
     - [Retrieving Items From The Cache](#retrieving-items-cache)
-    - [Storing Items In The Cache]
+    - [Storing Items In The Cache](#storing-items-cache)
     - [Removing Items From The Cache](#removing-items-cache)
     - [Cache Helper](#cache-helper)
 
