@@ -29,7 +29,7 @@ Lenevor provides a unified and expressive API around some of the most popular fo
 <a name="configuration"></a>
 ## Configuration
 
-Your application's cache configuration file is located at `config/cache.php`. Since this file, you may specify which cache driver you would like to be used by default throughout your application. Lenevor comes ready with a number of caching backends such as [Memcached](https://memcached.org), [Redis](https://redis.io), and connection to relational databases. In addition, a file based cache driver is available, while array and "null" cache drivers provide cache backends to be used for automated tests.
+Your application's cache configuration file is located at `config/cache.php`. Since this file, you may specify which cache driver you would like to be used by default throughout your application. Lenevor comes ready with a number of caching backends such as [Memcached](https://memcached.org), [Redis](https://redis.io), and connection to relational databases. In addition, a file based cache driver is available, while `array` and "null" cache drivers provide cache backends to be used for automated tests.
 
-Also the cache configuration file contains several other options, which are documented in the same file, so I invite you to read these configuration options. By default, Lenevor is configured to use the file cache driver, which stores serialized objects on the server's file system. When processing to building larger applications, it is recommended to use a more robust driver, such as Memcached or Redis.
+Also the cache configuration file contains several other options, which are documented in the same file, so I invite you to read these configuration options. By default, Lenevor is configured to use the `file` cache driver, which stores serialized objects on the server's file system. When processing to building larger applications, it is recommended to use a more robust driver, such as Memcached or Redis.
 
