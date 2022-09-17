@@ -33,3 +33,29 @@ Your application's cache configuration file is located at `config/cache.php`. Si
 
 Also the cache configuration file contains several other options, which are documented in the same file, so I invite you to read these configuration options. By default, Lenevor is configured to use the `file` cache driver, which stores serialized objects on the server's file system. When processing to building larger applications, it is recommended to use a more robust driver, such as Memcached or Redis.
 
+<a name="prerequisites"></a>
+### Prerequisites
+
+#### Database
+
+When using the `database` cache driver, you will create and setup a table to contain the cache items. An example `Schema` declaration is specified for the table below:
+
+    Schema::table('cache', function ($table) {
+        $table->string('key')->unique();
+        $table->text('value');
+        $table->integer('expiration');
+    });
+
+#### Memcached
+
+Using the `Memcached` driver it requires the installation of the [Memcached PECL package](https://pecl.php.net/package/memcached). You may list all of your Memcached servers in the `config/cache.php` configuration file. From this file contains the `memcached.servers` entry to get you started:
+
+    'memcached' => [
+        'servers' => [
+            [
+                'host' => env('MEMCACHED_HOST', '127.0.0.1'),
+                'port' => env('MEMCACHED_PORT', 11211),
+                'weight' => 100,
+            ],
+        ],
+    ],
