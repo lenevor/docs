@@ -9,8 +9,8 @@
     - [Database Store](#database-store)
     - [File Store](#file-store)
     - [Memcached Store](#memcached-Store)
-    - [Null Store](#null-store)
     - [Redis Store](#redis-store)
+    - [Null Store](#null-store)
 - [Cache Usage](#cache-usage)
     - [Obstaining A Cache Instance](#obstaining-cache-instance)
     - [Retrieving Items From The Cache](#retrieving-items-cache)
@@ -59,3 +59,35 @@ Using the `Memcached` driver it requires the installation of the [Memcached PECL
             ],
         ],
     ],
+
+#### Redis
+
+Should use a `Redis` cache with Lenevor, you will need to install the PhpRedis PHP extension via PECL or install the `predis/predis` package (~1.0) via Composer. You may modified in the configuration file `config/cache.php` directly in `redis.driver` and `redis.connection` options:
+
+    'redis' => [
+        'driver' => 'redis',
+        'connection' => 'cache',
+    ],
+
+<a name="drivers-cache"></a>
+## Drivers Cache
+
+<a name="apc-store"></a>
+### Apc Store
+
+Lenevor can using `APC` for your cache system that is used to store compiled PHP code and user data, which allows the web server, to process a greater number of requests per second, however it is convenient to point out that a configuration wrong use of it can slow down the response process, so it is important to adjust parameters until you find the right performance. You also have the option of using the `APCu` cache as long as you have this extension installed on your server, thereby using shared memory on the web server to store objects. This makes it very fast and capable of providing atomic read/write functions.
+
+<a name="array-store"></a>
+### Array Store
+
+Stores all data in an array. This engine does not provide persistent storage and is intended for use in application test suites.
+
+<a name="database-store"></a>
+### Database Store
+
+All setup are specified via a table in the database you use for your application. Therefore, the information is stored in that table and everything depends on the browser cache.
+
+<a name="file-store"></a>
+### File Store
+
+The file based caching allows for pieces of view files or of compilation to be cached. Use this with care, and make sure to benchmark your application, as a point can come where disk I/O will negate positive gains by caching. This requires a cache directory to be really writable by the application. Also, this is the default caching by Lenevor.
