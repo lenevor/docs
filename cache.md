@@ -9,8 +9,8 @@
     - [Database Store](#database-store)
     - [File Store](#file-store)
     - [Memcached Store](#memcached-Store)
-    - [Redis Store](#redis-store)
     - [Null Store](#null-store)
+    - [Redis Store](#redis-store)
 - [Cache Usage](#cache-usage)
     - [Obstaining A Cache Instance](#obstaining-cache-instance)
     - [Retrieving Items From The Cache](#retrieving-items-cache)
@@ -91,3 +91,20 @@ All setup are specified via a table in the database you use for your application
 ### File Store
 
 The file based caching allows for pieces of view files or of compilation to be cached. Use this with care, and make sure to benchmark your application, as a point can come where disk I/O will negate positive gains by caching. This requires a cache directory to be really writable by the application. Also, this is the default caching by Lenevor.
+
+<a name="memcached-store"></a>
+### Memcached Store
+
+Memcached allows you to store the results returned from a query to the database, but in addition to this data, you may store any information that comes to mind, for example calculation results, user session information, etc.
+
+<a name="null-store"></a>
+### Null Store
+
+This is a caching backend that will always 'miss'. It stores no data, but lets you keep your caching code in place in environments that don't support your chosen cache.
+
+<a name="redis-store"></a>
+### Redis Store
+
+Redis using an in-memory key-value store which may operate in cache mode. To use it, you need Redis server and phpredis PHP extension.
+
+Modify the config options to connect to redis server stored  in the cache configuration file to `config/cache.php`.
