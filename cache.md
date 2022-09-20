@@ -108,3 +108,41 @@ This is a caching backend that will always 'miss'. It stores no data, but lets y
 Redis using an in-memory key-value store which may operate in cache mode. To use it, you need Redis server and phpredis PHP extension.
 
 Modify the config options to connect to redis server stored  in the cache configuration file to `config/cache.php`.
+
+<a name="cache-usage"></a>
+## Cache Usage
+
+<a name="obstaining-cache-instance"></a>
+### Obstaining A Cache Instance
+
+To obtain a cache store instance, you may use the `Cache` facade, which is the most used throughout this documentation. The `Cache` facade allows access to implementations Lenevor cache contracts:
+
+    <?php
+
+    namespace App\Http;
+
+    use Syscodes\Components\Support\Facades\Cache;
+
+    class ProductController extends Controller
+    {
+        /**
+         * Show a list of all products.
+         *
+         * @return \Syscodes\Components\Http\Response
+         */
+        public function index()
+        {
+            $value = Cache::get('key');
+            
+            //
+        }
+    }
+
+<a name="accessing-multiple-cache-stores"></a>
+#### Accessing Multiple Cache Stores
+
+At using the `Cache` facade, you may access various `cache` stores through the store method. Which, the key passed to the `store`  should correspond to one of the `stores` listed in the `stores` configuration array in your `cache` configuration file, as follow:
+
+    $value = Cache::store('file')->get('key');
+
+    Cache::store('memcached')->->put('key', 'Good product!', 600); // 10 Minutes
