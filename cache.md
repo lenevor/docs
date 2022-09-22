@@ -145,4 +145,13 @@ At using the `Cache` facade, you may access various `cache` stores through the s
 
     $value = Cache::store('file')->get('key');
 
-    Cache::store('memcached')->->put('key', 'Good product!', 600); // 10 Minutes
+    Cache::store('memcached')->put('key', 'Good product!', 600); // 10 Minutes
+
+<a name="retrieving-items-cache"></a>
+### Retrieving Items From The Cache
+
+The `Cache` facade's `get` method is used to retrieve items from the cache. If the item does not exist in the cache,`null` will be returned. If you wish, you may pass a second argument to the `get` method specifying the default value you wish to be returned if the item doesn't exist:
+
+    $value = Cache::get('key');
+
+    $value = Cache::get('key', 'default');
