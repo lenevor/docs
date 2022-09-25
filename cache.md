@@ -155,3 +155,18 @@ The `Cache` facade's `get` method is used to retrieve items from the cache. If t
     $value = Cache::get('key');
 
     $value = Cache::get('key', 'default');
+
+You may also pass a closure as the default value. The result of the closure will be returned if the item does not exist in the cache. Passing a closure allows you to defer retrieval of default values from a database or other external services, as follows:
+
+    $value = Cache::get('key', function () {
+        return DB::table(/* ... */)->get();
+    });
+
+<a name="checking-item-existence"></a>
+#### Checking For Item Existence
+
+The `has` method may be used to determine if an item exists in the cache. This method may return a `false` value if the item exists, but its value is `null`, as follows:
+
+    if (Cache::has('key')) {
+        //
+    }
