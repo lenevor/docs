@@ -170,3 +170,13 @@ The `has` method may be used to determine if an item exists in the cache. This m
     if (Cache::has('key')) {
         //
     }
+
+<a name="incrementing-decrementing-values"></a>
+#### Incrementing / Decrementing Values
+
+The `increment` and `decrement` methods are used to adjust the value of integer items in the cache. These methods mentioned above accept an optional second argument to indicate by which to increment or decrement the item's value, as follows:
+
+    Cache::increment('key');
+    Cache::increment('key', $value);
+    Cache::decrement('key');
+    Cache::decrement('key', $value);
