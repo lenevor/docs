@@ -180,3 +180,10 @@ The `increment` and `decrement` methods are used to adjust the value of integer 
     Cache::increment('key', $value);
     Cache::decrement('key');
     Cache::decrement('key', $value);
+
+<a name="retrieve-delete"></a>
+#### Retrieve & Delete
+
+If you need to retrieve an item from the cache and then delete it, you may use the `pull` method. As with the `get` method, a `null` value will be returned if the item does not exist in the cache, as follows:
+
+    $value = Cache::pull('key');
