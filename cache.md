@@ -187,3 +187,18 @@ The `increment` and `decrement` methods are used to adjust the value of integer 
 If you need to retrieve an item from the cache and then delete it, you may use the `pull` method. As with the `get` method, a `null` value will be returned if the item does not exist in the cache, as follows:
 
     $value = Cache::pull('key');
+
+<a name="storing-items-cache"></a>
+### Storing Items In The Cache
+
+To store elements in the cache use the `put` method, as follows:
+
+    Cache::put('key', 'value', 10); // Seconds = 10
+
+If the storage time is not passed to the `put` method, the item will be stored indefinitely, as follow:
+
+    Cache::put('key', 'value');
+
+Also, you have the ability to passing the number of seconds as an integer or you may pass a `Datetime` instance representing the desired expiration time of the cached item, as follows:
+
+    Cache::put('key', 'value', now()->addMinutes(10));
