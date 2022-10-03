@@ -202,3 +202,35 @@ If the storage time is not passed to the `put` method, the item will be stored i
 Also, you have the ability to passing the number of seconds as an integer or you may pass a `Datetime` instance representing the desired expiration time of the cached item, as follows:
 
     Cache::put('key', 'value', now()->addMinutes(10));
+
+<a name="store-if-not-item-present"></a>
+#### Store If  Not A Item Present
+
+The `add` method will only add the item to the cache if it does not already exist in the cache store. The method will return `true` if the item is actually added to the cache. Otherwise, the method will return `false`, as follow:
+
+    Cache::add('key', 'value', $seconds);
+
+<a name="storing-items-forever"></a>
+#### Storing Items Forever
+
+The `forever` method may be used to store an item in the cache permanently. Since these items will not expire, they must be manually removed from the cache using the `delete` method, as follow:
+
+    Cache::forever('key', 'value');
+
+<a name="removing-items-cache"></a>
+### Removing Items From The Cache
+
+You may remove items from the cache using the `delete` method, as follow:
+
+    Cache::delete('key');
+
+You may also remove items by providing a zero or negative number of expiration seconds, as follow:
+
+    Cache::put('key', 'value', 0);
+
+    Cache::put('key', 'value', -5);
+
+You may clear the entire cache using the flush method, as follow:
+
+    Cache::flush();
+
