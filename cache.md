@@ -16,7 +16,7 @@
     - [Retrieving Items From The Cache](#retrieving-items-cache)
     - [Storing Items In The Cache](#storing-items-cache)
     - [Removing Items From The Cache](#removing-items-cache)
-    - [Cache Helper](#cache-helper)
+    - [The Cache Helper](#cache-helper)
 
 <a name="introduction"></a>
 ## Introduction
@@ -234,3 +234,15 @@ You may clear the entire cache using the flush method, as follow:
 
     Cache::flush();
 
+<a name="cache-helper"></a>
+### The Cache Helper
+
+Also to using the `Cache` facade, you may also use the global `cache` function to retrieve and store data via the cache. When the `cache` function is called with a single, string argument, it will return the value of the given key, as follows:
+
+    $value = cache('key');
+
+When the cache function is called without any arguments, it returns an instance of the `Syscodes\Components\Contracts\Cache\Factory` implementation, allowing you to call other caching methods, as follow:
+
+    cache()->put('key', 'value', 10);
+
+    cache()->get('key');
