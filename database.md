@@ -153,10 +153,15 @@ Some database statements do not return any value. For these types of operations,
 <a name="using-multiple-database-connections"></a>
 ### Using Multiple Database Connections
 
-You may defiYou may define multiple connections in your `config/database.php` configuration file, through the connection method provided by the DB facade, as follows: 
+You may define multiple connections in your `config/database.php` configuration file, through the connection method provided by the DB facade, as follows: 
 
     use Syscodes\Components\Support\Facades\DB;
 
     $users = DB::connection('mysql')->select(...)->get();
 
     return view('example', ['users' => $users]);
+
+You may access the raw, underlying PDO instance of a connection using the getPdo method on a connection instance, as follow:
+
+    $pdo = DB::connection()->getPdo();
+
