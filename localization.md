@@ -6,6 +6,8 @@
     - [Using Short Keys](#using-short-keys)
     - [Using Translation Strings As Keys](#using-translation-strings-keys)
 - [Retrieving Translation Strings](#retrieving-translation-strings)
+    - [Replacing Parameters In Translation Strings](#replacing-parameters-translation-strings)
+    - [Pluralization](#pluralization)
 
 
 <a name="introduction"></a>
@@ -114,7 +116,86 @@ If you are using your default translation strings as your translation keys, you 
 
 Again, if the translation string does not exist, the __ function will return the translation string key that it was given.
 
-If you are using the Plaze templating engine, you may use the {{ }} echo syntax to display the translation string:
+If you are using the [Plaze templating engine](/plaze.md), you may use the {{ }} echo syntax to display the translation string:
 
     {{ __('exception.enviroment') }}
 
+<a name="replacing-parameters-translation-strings"></a>
+### Replacing Parameters In Translation Strings
+
+If you wish, you may use placeholders in your translation strings. All placeholders are prefixed with a `:`. For example, you may define a welcome message with a placeholder name, as follows:
+
+    'welcome' => 'Welcome, :name',
+
+To replace the placeholders when retrieving a translation string, you may use an array as the second argument to the `__` function, as follows:
+
+    {{ __('views.welcome', ['name' => 'Alexander']) }}
+
+
+If your placeholder has all capital letters, or has only its first letter capitalized, the translated value will be capitalized accordingly, as follows:
+
+    'welcome' => 'Welcome, :NAME', // Welcome, ALEXANDER
+    'Hello'   => 'Hello, :Name',   // Hello, Elena
+
+<a name="pluralization"></a>
+### Pluralization
+
+You may pass an array of values to replace placeholders in the traduction string as the second parameter to the `__` function. This allows for very simple number translations and formatting, as follow:
+
+    [Setting file]
+    'fruit-apples' => 'I have {0, number} apples',
+
+    [Plaze file]
+    {{ __('view.fruit-apples', [3]) }} // I have 3 apples
+
+The first item in the placeholder corresponds to the index of the item in the array, if it’s numerical, as follow:
+
+    [Setting file]
+    'person' => 'The top {1, number} men out-performed the remaining {0, number}',
+
+    [Plaze file]
+    {{ __('view.person', [20, 30]) }} // The top 30 men out-performed the remaining 20
+
+You can also use named keys to make it easier to keep things straight, if you’d like, as follow:
+
+    [Setting file]
+    'fruits-oranges' => 'I have {number_oranges, number, integer} oranges',
+
+    [Plaze file]
+    {{ __('view.fruits-oranges', ['number_oranges' => 3]) }} // I have 3 oranges
+
+Also, you may do more than just number replacement. According to the [official ICU docs](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/classMessageFormat.html#details) for the underlying library, the following types of data can be replaced:
+
+- numbers - integer, currency, percent
+- dates - short, medium, long, full
+- time - short, medium, long, full
+- spellout - spells out numbers (i.e., 34 becomes thirty-four)
+- ordinal
+- duration
+
+Here are a few examples in the setting file of language:
+    
+    'shortTime'  => 'The time is now {0, time, short}',
+    'mediumTime' => 'The time is now {0, time, medium}',
+    'longTime'   => 'The time is now {0, time, long}',
+    'fullTime'   => 'The time is now {0, time, full}',
+    'shortDate'  => 'The date is now {0, date, short}',
+    'mediumDate' => 'The date is now {0, date, medium}',
+    'longDate'   => 'The date is now {0, date, long}',
+    'fullDate'   => 'The date is now {0, date, full}',
+    'spelledOut' => '34 is {0, spellout}',
+    'ordinal'    => 'The ordinal is {0, ordinal}',
+    'duration'   => 'It has been {0, duration}',
+
+This is the display of the translation string in the Plaze file in a view, using to the `__` function for to show the message already translated, as follow:
+
+    {{ __('view.shortTime', [time()]) }} // "The time is now 09:10 PM"
+    {{ __('view.mediumTime', [time()]) }} // "The time is now 09:15:50 PM"
+    {{ __('view.longTime', [time()]) }} // "The time is now 09:19:09 PM CDT"
+    {{ __('view.fullTime', [time()]) }} // "The time is now 09:20:26 PM Central Daylight Time"
+    {{ __('view.shortDate', [time()]) }} // "The date is now 11/18/21"
+    {{ __('view.mediumDate', [time()]) }} // "The date is now Nov 18, 2021"
+    {{ __('view.longDate', [time()]) }} // "The date is now November 18, 2021"
+    {{ __('view.fullDate', [time()]) }} // "The date is now Sunday, November 21, 2021"
+    {{ __('view.spelledOut', [34]) }} // "34 is thirty-four"
+    {{ __('view.ordinal', [time()]) }} // "It has been 468,453:21:18"
