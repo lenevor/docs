@@ -26,7 +26,7 @@ Unlike facades, which don't require you to require them in your class constructo
 
 The decision to use the contracts or the facades will depend on personal taste or the development team. Both contracts and facades can be used in good quality and solid lenevor applications. For some applications the facades can be used while in others they depend on the contracts. When you know what responsibility your class has, you will notice very few differences between the use of contracts and facades.
 
-In particular, most applications can use facades without complications during development. If you are developing a package that integrates multiple PHP frameworks, you can use the `Syscodes\Contracts` package to integrate Lenevor services and require Lenevor implementations in the `composer.json` file of your package.
+In particular, most applications can use facades without complications during development. If you are developing a package that integrates multiple PHP frameworks, you can use the `Syscodes\Components\Contracts` package to integrate Lenevor services and require Lenevor implementations in the `composer.json` file of your package.
 
 <a name="how-to-use-contracts"></a>
 ## How To Use Contracts
@@ -40,21 +40,21 @@ For example,  is take a look at this controller:
     namespace App\Http\Controllers;
 
     use App\Controller\Controller;
-    use Syscodes\Contracts\View\Factory;
+    use Syscodes\Components\Contracts\View\Factory;
 
     class Customer extends Controller
     {
         /**
          * The Request implementation.
          *
-         * @var \Syscodes\Contracts\View\Factory $factory
+         * @var \Syscodes\Components\Contracts\View\Factory $factory
          */
         protected $factory;
 
         /**
          * Constructor. Create a new Customer instance.
          *
-         * @param  \Syscodes\Contracts\View\Factory  $factory;
+         * @param  \Syscodes\Components\Contracts\View\Factory  $factory;
          *
          * @return void
          */
