@@ -11,7 +11,7 @@
 <a name="introduction"></a>
 ## Introduction
 
-Lenevor's `Syscodes\Http\Request` class is an object-oriented representation of an HTTP request intended to retrieve incoming requests, requests to the application from a browser, outgoing requests, the cookies and files that were submitted with the request.
+Lenevor's `Syscodes\Components\Http\Request` class is an object-oriented representation of an HTTP request intended to retrieve incoming requests, requests to the application from a browser, outgoing requests, the cookies and files that were submitted with the request.
 
 <a name="using-request"></a>
 ## Using The Request
@@ -19,23 +19,23 @@ Lenevor's `Syscodes\Http\Request` class is an object-oriented representation of 
 <a name="accessing-request"></a>
 ### Accessing The Request
 
-Is obtained an instance of the HTTP request via dependency injection and is calls the `Syscodes\Http\Request` class on your route closure or controller method. This request instance will automatically be injected by the Lenevor service container, as follows:
+Is obtained an instance of the HTTP request via dependency injection and is calls the `Syscodes\Components\Http\Request` class on your route closure or controller method. This request instance will automatically be injected by the Lenevor service container, as follows:
 
     <?php
 
     namespace App\Http\Controllers;
 
     use App\Http\Controller;
-    use Syscodes\Http\Request;
+    use Syscodes\Components\Http\Request;
     
     class ExampleController extends Controller
     {
         /**
          * Get a store.
          *
-         * @param  \Syscodes\Http\Request  $request
+         * @param  \Syscodes\Components\Http\Request  $request
          *
-         * @return \Syscodes\Http\Response
+         * @return \Syscodes\Components\Http\Response
          */
         public function Store(Request $request)
         {
@@ -45,9 +45,9 @@ Is obtained an instance of the HTTP request via dependency injection and is call
         }
     }
 
-As specified previous, you may also suggest that the `Syscodes\Http\Request` class used on a route closure. The service container will automatically inject the incoming request into the request when it is executed, as follows:
+As specified previous, you may also suggest that the `Syscodes\Components\Http\Request` class used on a route closure. The service container will automatically inject the incoming request into the request when it is executed, as follows:
 
-    use Syscodes\Http\Request;
+    use Syscodes\Components\Http\Request;
 
     Route::get('/', function (Request $request) {
         //
@@ -56,7 +56,7 @@ As specified previous, you may also suggest that the `Syscodes\Http\Request` cla
 <a name="request-path"></a>
 ### Request Path
 
-The `Syscodes\Http\Request` class allows a wide variety of methods for examining the incoming and outgoing HTTP request. Below you are exposes the most important methods. 
+The `Syscodes\Components\Http\Request` class allows a wide variety of methods for examining the incoming and outgoing HTTP request. Below you are exposes the most important methods. 
 
 <a name="using-request-path"></a>
 #### Using The Request Path
@@ -108,7 +108,7 @@ The `getMethod` method will return the HTTP verb for the request. You may use th
 <a name="request-headers"></a>
 ### Request Headers 
 
-You may retrieve a request header from the `Syscodes\Http\Request` instance using the `header` method. If the header is not present on the request, `null` will be returned. However, the `header` method accepts an optional second argument that will be returned if the header is not present in the request, as follows:
+You may retrieve a request header from the `Syscodes\Components\Http\Request` instance using the `header` method. If the header is not present on the request, `null` will be returned. However, the `header` method accepts an optional second argument that will be returned if the header is not present in the request, as follows:
 
     $header = $request->header('X-Header-Name');
 
@@ -143,7 +143,7 @@ You may retrieve all of the incoming request's input data as an `array` using th
 <a name="retrieving-input-value"></a>
 #### Retrieving An Input Value
 
-You may access all user `input` from the `Syscodes\Http\Request` instance without worrying about which HTTP verb was used for the request, as follows:
+You may access all user `input` from the `Syscodes\Components\Http\Request` instance without worrying about which HTTP verb was used for the request, as follows:
 
     $products = $request->input('products');
 
