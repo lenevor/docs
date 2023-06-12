@@ -94,6 +94,7 @@ This table provides a quick reference to all of the Lenevor contracts and their 
 | [Syscodes\Contracts\Routing\RouteResponse](https://github.com/syscodes/contracts/blob/{{version}}/Routing/RouteResponse.php)   | `Response`                   |
 | [Syscodes\Contracts\Session\Session](https://github.com/syscodes/contracts/blob/{{version}}/Session/Session.php)               | `Session::driver()`          |
 | [Syscodes\Contracts\Support\Arrayable](https://github.com/Syscodes/contracts/blob/{{version}}/Support/Arrayable.php)           | &nbsp;                       |
+| [Syscodes\Contracts\Support\Deferrable](https://github.com/Syscodes/contracts/blob/{{version}}/Support/Deferrable.php)         | &nbsp;                       |
 | [Syscodes\Contracts\Support\Jsonable](https://github.com/Syscodes/contracts/blob/{{version}}/Support/Jsonable.php)             | &nbsp;                       |
 | [Syscodes\Contracts\Support\Renderable](https://github.com/Syscodes/contracts/blob/{{version}}/Support/Renderable.php)         | &nbsp;                       |
 | [Syscodes\Contracts\Support\Webable](https://github.com/Syscodes/contracts/blob/{{version}}/Support/Webable.php)               | &nbsp;                       |
