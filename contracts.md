@@ -73,7 +73,7 @@ This table provides a quick reference to all of the Lenevor contracts and their 
 |-------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | [Syscodes\Components\Contracts\Cache\Key](https://github.com/syscodes/contracts/blob/{{version}}/Cache/Key.php)                           | &nbsp;                       |
 | [Syscodes\Components\Contracts\Cache\Manager](https://github.com/syscodes/contracts/blob/{{version}}/Cache/Manager.php)                   | `Cache`                      |
-| [Syscodes\Components\Contracts\Cache\Manager](https://github.com/syscodes/contracts/blob/{{version}}/Cache/Repository.php)                | `Cache::driver()`            |
+| [Syscodes\Components\Contracts\Cache\Repository](https://github.com/syscodes/contracts/blob/{{version}}/Cache/Repository.php)             | `Cache.driver()`             |
 | [Syscodes\Components\Contracts\Cache\Store](https://github.com/syscodes/contracts/blob/{{version}}/Cache/Store.php)                       | &nbsp;                       |
 | [Syscodes\Components\Contracts\Config\Configure](https://github.com/syscodes/contracts/blob/{{version}}/Config/Configure.php)             | `Config`                     |
 | [Syscodes\Components\Contracts\Console\Application](https://github.com/syscodes/contracts/blob/{{version}}/Console/Application.php)       | &nbsp;                       |
