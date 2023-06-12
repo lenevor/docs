@@ -73,14 +73,12 @@ This table provides a quick reference to all of the Lenevor contracts and their 
 |-------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | [Syscodes\Components\Contracts\Cache\Key](https://github.com/syscodes/contracts/blob/{{version}}/Cache/Key.php)                           | &nbsp;                       |
 | [Syscodes\Components\Contracts\Cache\Manager](https://github.com/syscodes/contracts/blob/{{version}}/Cache/Manager.php)                   | `Cache`                      |
-| [Syscodes\Components\Contracts\Cache\Manager](https://github.com/syscodes/contracts/blob/{{version}}/Cache/Repository.php)                | `Cache::driver()`            |
+| [Syscodes\Components\Contracts\Cache\Repository](https://github.com/syscodes/contracts/blob/{{version}}/Cache/Repository.php)             | `Cache.driver()`             |
 | [Syscodes\Components\Contracts\Cache\Store](https://github.com/syscodes/contracts/blob/{{version}}/Cache/Store.php)                       | &nbsp;                       |
 | [Syscodes\Components\Contracts\Config\Configure](https://github.com/syscodes/contracts/blob/{{version}}/Config/Configure.php)             | `Config`                     |
 | [Syscodes\Components\Contracts\Console\Application](https://github.com/syscodes/contracts/blob/{{version}}/Console/Application.php)       | &nbsp;                       |
 | [Syscodes\Components\Contracts\Console\Lenevor](https://github.com/syscodes/contracts/blob/{{version}}/Console/Lenevor.php)               | `Prime`                      |
 | [Syscodes\Components\Contracts\Container\Container](https://github.com/syscodes/contracts/blob/{{version}}/Container/Container.php)       | `App`                        |
-| [Syscodes\Components\Contracts\Cookie\Factory](https://github.com/syscodes/contracts/blob/{{version}}/Cookie/Factory.php)                 | `Cookie`                     |
-| [Syscodes\Components\Contracts\Cookie\QueueFactory](https://github.com/syscodes/contracts/blob/{{version}}/Cookie/QueueFactory.php)       | `Cookie::queue()`            |
 | [Syscodes\Components\Contracts\Core\Application](https://github.com/syscodes/contracts/blob/{{version}}/Core/Application.php)             | `App`                        |
 | [Syscodes\Components\Contracts\Debug\ExceptionHandler](https://github.com/syscodes/contracts/blob/{{version}}/Debug/ExceptionHandler.php) | &nbsp;                       |
 | [Syscodes\Components\Contracts\Debug\Handler](https://github.com/syscodes/contracts/blob/{{version}}/Debug/Handler.php)                   | &nbsp;                       |
