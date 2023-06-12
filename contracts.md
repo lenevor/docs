@@ -73,6 +73,7 @@ This table provides a quick reference to all of the Lenevor contracts and their 
 |--------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | [Syscodes\Contracts\Cache\Key](https://github.com/syscodes/contracts/blob/{{version}}/Cache/Key.php)                           | &nbsp;                       |
 | [Syscodes\Contracts\Cache\Manager](https://github.com/syscodes/contracts/blob/{{version}}/Cache/Manager.php)                   | `Cache`                      |
+| [Syscodes\Contracts\Cache\Manager](https://github.com/syscodes/contracts/blob/{{version}}/Cache/Repository.php)                | `Cache::driver()`            |
 | [Syscodes\Contracts\Cache\Store](https://github.com/syscodes/contracts/blob/{{version}}/Cache/Store.php)                       | &nbsp;                       |
 | [Syscodes\Contracts\Config\Configure](https://github.com/syscodes/contracts/blob/{{version}}/Config/Configure.php)             | `Config`                     |
 | [Syscodes\Contracts\Console\Application](https://github.com/syscodes/contracts/blob/{{version}}/Console/Application.php)       | &nbsp;                       |
@@ -82,8 +83,8 @@ This table provides a quick reference to all of the Lenevor contracts and their 
 | [Syscodes\Contracts\Debug\ExceptionHandler](https://github.com/syscodes/contracts/blob/{{version}}/Debug/ExceptionHandler.php) | &nbsp;                       |
 | [Syscodes\Contracts\Debug\Handler](https://github.com/syscodes/contracts/blob/{{version}}/Debug/Handler.php)                   | &nbsp;                       |
 | [Syscodes\Contracts\Debug\Table](https://github.com/syscodes/contracts/blob/{{version}}/Debug/Table.php)                       | &nbsp;                       |
-| [Syscodes\Contracts\Dotenv\Adapter](https://github.com/syscodes/contracts/blob/{{version}}/Dotenv/Adapter.php)                 | &nbsp;                       |
-| [Syscodes\Contracts\Dotenv\Repository](https://github.com/syscodes/contracts/blob/{{version}}/Dotenv/Repository.php)           | &nbsp;                       |
+| [Syscodes\Contracts\Dotenv\Adapter](https://github.com/syscodes/contracts/blob/{{version}}/Dotenv/Adapter.php)                 | `env`                        |
+| [Syscodes\Contracts\Dotenv\Repository](https://github.com/syscodes/contracts/blob/{{version}}/Dotenv/Repository.php)           | `env`                        |
 | [Syscodes\Contracts\Encryption\Encrypter](https://github.com/Syscodes/contracts/blob/{{version}}/Encryption/Encrypter.php)     | `Crypt`                      |
 | [Syscodes\Contracts\Events\Dispatcher](https://github.com/syscodes/contracts/blob/{{version}}/Events/Dispatcher.php)           | `Event`                      |
 | [Syscodes\Contracts\Http\Lenevor](https://github.com/syscodes/contracts/blob/{{version}}/Http/Lenevor.php)                     | &nbsp;                       |
