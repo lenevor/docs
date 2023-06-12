@@ -103,6 +103,7 @@ This table provides a quick reference to all of the Lenevor contracts and their 
 | [Syscodes\Components\Contracts\Pipeline\Pipeline](https://github.com/syscodes/contracts/blob/{{version}}/Pipeline/Pipeline.php)                 | &nbsp;                       |
 | [Syscodes\Components\Contracts\Routing\Routable](https://github.com/syscodes/contracts/blob/{{version}}/Routing/Routable.php)                   | `Route`                      |
 | [Syscodes\Components\Contracts\Routing\RouteResponse](https://github.com/syscodes/contracts/blob/{{version}}/Routing/RouteResponse.php)         | `Response`                   |
+| [Syscodes\Components\Contracts\Routing\UrlGenerator](https://github.com/syscodes/contracts/blob/{{version}}/Routing/UrlGenerator.php)           | `URL`                   |
 | [Syscodes\Components\Contracts\Session\Session](https://github.com/syscodes/contracts/blob/{{version}}/Session/Session.php)                     | `Session::driver()`          |
 | [Syscodes\Components\Contracts\Support\Arrayable](https://github.com/Syscodes/contracts/blob/{{version}}/Support/Arrayable.php)                 | &nbsp;                       |
 | [Syscodes\Components\Contracts\Support\Deferrable](https://github.com/Syscodes/contracts/blob/{{version}}/Support/Deferrable.php)               | &nbsp;                       |
