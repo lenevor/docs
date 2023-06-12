@@ -73,7 +73,6 @@ This table provides a quick reference to all of the Lenevor contracts and their 
 |-------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | [Syscodes\Components\Contracts\Cache\Key](https://github.com/syscodes/contracts/blob/{{version}}/Cache/Key.php)                           | &nbsp;                       |
 | [Syscodes\Components\Contracts\Cache\Manager](https://github.com/syscodes/contracts/blob/{{version}}/Cache/Manager.php)                   | `Cache`                      |
-| [Syscodes\Components\Contracts\Cache\Manager](https://github.com/syscodes/contracts/blob/{{version}}/Cache/Repository.php)                | `Cache::driver()`            |
 | [Syscodes\Components\Contracts\Cache\Store](https://github.com/syscodes/contracts/blob/{{version}}/Cache/Store.php)                       | &nbsp;                       |
 | [Syscodes\Components\Contracts\Config\Configure](https://github.com/syscodes/contracts/blob/{{version}}/Config/Configure.php)             | `Config`                     |
 | [Syscodes\Components\Contracts\Console\Application](https://github.com/syscodes/contracts/blob/{{version}}/Console/Application.php)       | &nbsp;                       |
@@ -94,7 +93,6 @@ This table provides a quick reference to all of the Lenevor contracts and their 
 | [Syscodes\Components\Contracts\Routing\RouteResponse](https://github.com/syscodes/contracts/blob/{{version}}/Routing/RouteResponse.php)   | `Response`                   |
 | [Syscodes\Components\Contracts\Session\Session](https://github.com/syscodes/contracts/blob/{{version}}/Session/Session.php)               | `Session::driver()`          |
 | [Syscodes\Components\Contracts\Support\Arrayable](https://github.com/Syscodes/contracts/blob/{{version}}/Support/Arrayable.php)           | &nbsp;                       |
-| [Syscodes\Components\Contracts\Support\Deferrable](https://github.com/Syscodes/contracts/blob/{{version}}/Support/Deferrable.php)         | &nbsp;                       |
 | [Syscodes\Components\Contracts\Support\Jsonable](https://github.com/Syscodes/contracts/blob/{{version}}/Support/Jsonable.php)             | &nbsp;                       |
 | [Syscodes\Components\Contracts\Support\Renderable](https://github.com/Syscodes/contracts/blob/{{version}}/Support/Renderable.php)         | &nbsp;                       |
 | [Syscodes\Components\Contracts\Support\Webable](https://github.com/Syscodes/contracts/blob/{{version}}/Support/Webable.php)               | &nbsp;                       |
