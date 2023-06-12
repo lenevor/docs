@@ -79,12 +79,14 @@ This table provides a quick reference to all of the Lenevor contracts and their 
 | [Syscodes\Contracts\Console\Application](https://github.com/syscodes/contracts/blob/{{version}}/Console/Application.php)       | &nbsp;                       |
 | [Syscodes\Contracts\Console\Lenevor](https://github.com/syscodes/contracts/blob/{{version}}/Console/Lenevor.php)               | `Prime`                      |
 | [Syscodes\Contracts\Container\Container](https://github.com/syscodes/contracts/blob/{{version}}/Container/Container.php)       | `App`                        |
+| [Syscodes\Contracts\Cookie\Factory](https://github.com/syscodes/contracts/blob/{{version}}/Cookie/Factory.php)                 | `Cookie`                     |
+| [Syscodes\Contracts\Cookie\QueueFactory](https://github.com/syscodes/contracts/blob/{{version}}/Cookie/QueueFactory.php)       | `Cookie::queue()`            |
 | [Syscodes\Contracts\Core\Application](https://github.com/syscodes/contracts/blob/{{version}}/Core/Application.php)             | `App`                        |
 | [Syscodes\Contracts\Debug\ExceptionHandler](https://github.com/syscodes/contracts/blob/{{version}}/Debug/ExceptionHandler.php) | &nbsp;                       |
 | [Syscodes\Contracts\Debug\Handler](https://github.com/syscodes/contracts/blob/{{version}}/Debug/Handler.php)                   | &nbsp;                       |
 | [Syscodes\Contracts\Debug\Table](https://github.com/syscodes/contracts/blob/{{version}}/Debug/Table.php)                       | &nbsp;                       |
-| [Syscodes\Contracts\Dotenv\Adapter](https://github.com/syscodes/contracts/blob/{{version}}/Dotenv/Adapter.php)                 | `env`                        |
-| [Syscodes\Contracts\Dotenv\Repository](https://github.com/syscodes/contracts/blob/{{version}}/Dotenv/Repository.php)           | `env`                        |
+| [Syscodes\Contracts\Dotenv\Adapter](https://github.com/syscodes/contracts/blob/{{version}}/Dotenv/Adapter.php)                 | &nbsp;                       |
+| [Syscodes\Contracts\Dotenv\Repository](https://github.com/syscodes/contracts/blob/{{version}}/Dotenv/Repository.php)           | &nbsp;                       |
 | [Syscodes\Contracts\Encryption\Encrypter](https://github.com/Syscodes/contracts/blob/{{version}}/Encryption/Encrypter.php)     | `Crypt`                      |
 | [Syscodes\Contracts\Events\Dispatcher](https://github.com/syscodes/contracts/blob/{{version}}/Events/Dispatcher.php)           | `Event`                      |
 | [Syscodes\Contracts\Http\Lenevor](https://github.com/syscodes/contracts/blob/{{version}}/Http/Lenevor.php)                     | &nbsp;                       |
