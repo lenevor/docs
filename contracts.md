@@ -89,6 +89,7 @@ This table provides a quick reference to all of the Lenevor contracts and their 
 | [Syscodes\Contracts\Dotenv\Repository](https://github.com/syscodes/contracts/blob/{{version}}/Dotenv/Repository.php)           | &nbsp;                       |
 | [Syscodes\Contracts\Encryption\Encrypter](https://github.com/Syscodes/contracts/blob/{{version}}/Encryption/Encrypter.php)     | `Crypt`                      |
 | [Syscodes\Contracts\Events\Dispatcher](https://github.com/syscodes/contracts/blob/{{version}}/Events/Dispatcher.php)           | `Event`                      |
+| [Syscodes\Contracts\Hashing\Hasher](https://github.com/syscodes/contracts/blob/{{version}}/Hashing/Hasher.php)                 | `Hash`                       |
 | [Syscodes\Contracts\Http\Lenevor](https://github.com/syscodes/contracts/blob/{{version}}/Http/Lenevor.php)                     | &nbsp;                       |
 | [Syscodes\Contracts\Log\Handler](https://github.com/syscodes/contracts/blob/{{version}}/Log/Handler.php)                       | `Log`                        |
 | [Syscodes\Contracts\Pipeline\Pipeline](https://github.com/syscodes/contracts/blob/{{version}}/Pipeline/Pipeline.php)           | &nbsp;                       |
