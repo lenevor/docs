@@ -148,12 +148,20 @@ The `make` method allows you to resolve a class instance from the container. Thi
 
     $music = $this->app->make(Music::class);
 
-If instead you are outside of a service provider in a location of your code where does not have access the `$this->app` variable, then you may use the `App` facade to resolve a class instance from the container, as follows: 
+The `bound` method may be used to determine if a class or interface has been explicitly bound in the container, as follow:
+
+    if ($this->app->bound(Music::class)) {
+        // ...
+    }
+
+If instead you are outside of a service provider in a location of your code where does not have access the `$this->app` variable, then you may use the `App` facade or the `app` helper to resolve a class instance from the container, as follows: 
 
     use App\Services\Music;
     use Syscodes\Support\Facades\App;
 
     $music = App::make(Music::class);
+
+    $music = app(Music::class);
 
 Also if you would the Lenevor container instance to be injected into a class that is being resolved by the container, you may specify the argument with the `Syscodes\Container\Container`class on your class constructor, as follows:
 
