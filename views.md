@@ -37,7 +37,7 @@ or using the "assign" method for detect variables in the views as follows:
 <a name="creating-rendering-views"></a>
 ## Creating & Rendering Views
 
-With this utility you may create a view by placing a file with the `.plaze.php` extension in your application in the `resources/views` directory . The `.plaze.php` extension informs the framework that the file contains a [Plaze template](/plaze.md). Plaze templates contain HTML as well as Plaze directives that allow you to easily echo values, create conditional statements (if, elseif), iterate over data, and much more.
+With this utility you may create a view by placing a file with the `.plaze.php` extension in your application in the `resources/views` directory . The `.plaze.php` extension informs the framework that the file contains a [Plaze template](/docs/{{version}}/plaze). Plaze templates contain HTML as well as Plaze directives that allow you to easily echo values, create conditional statements (if, elseif), iterate over data, and much more.
 
 Once you have created a view, you can return it from one of your application's routes or controllers using the global view wizard as follows: 
 
@@ -51,7 +51,7 @@ Views may also return values using the View facade as follows:
 
     return View::make('example', ['name => 'Alexander]);
 
-As you can see, the first argument passed to the view wizard corresponds to the view file name in the `resources/views` directory. The second argument corresponds is an array of data passing the name variable that is displayed in the view using the [Plaze syntax](/plaze.md). 
+As you can see, the first argument passed to the view wizard corresponds to the view file name in the `resources/views` directory. The second argument corresponds is an array of data passing the name variable that is displayed in the view using the [Plaze syntax](/docs/{{version}}/plaze). 
 
 <a name="nested-view-directories"></a>
 ### Nested View Directories
