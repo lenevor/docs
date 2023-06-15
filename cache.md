@@ -283,8 +283,8 @@ We just need to implement each of these methods using a MongoDB connection. Once
         return Cache::repository(new MongoStore);
     });
 
-> **Note**
-> If you're wondering where to put your custom cache driver code, you could create an `Extensions` namespace within your `app` directory. However, keep in mind that Lenevor does not have a rigid application structure and you are free to organize your application according to your preferences.
+> **Note**  
+> If you're wondering where to put your custom cache driver code, you could create an `Extensions` namespace within your `app` directory. However, keep in mind that Laravel does not have a rigid application structure and you are free to organize your application according to your preferences.
 
 <a name="registered-the-driver"></a>
 ### Registered The Driver
