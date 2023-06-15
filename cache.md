@@ -17,10 +17,12 @@
     - [Storing Items In The Cache](#storing-items-cache)
     - [Removing Items From The Cache](#removing-items-cache)
     - [The Cache Helper](#cache-helper)
+- [Adding Custom Cache Drivers](#adding-custom-cache-drivers)
+    - [Writing The Driver](#writing-the-driver)
+    - [Registering The Driver](#registering-the-driver)
 
 <a name="introduction"></a>
 ## Introduction
-
 
 When performing some data retrieval or processing tasks perfomed by your application may be CPU intensive or take several seconds to complete. If this is the case, it is most common to cache the retrieved data for some time so that it can be called quickly on subsequent requests for the same data.
 
@@ -246,3 +248,81 @@ When the cache function is called without any arguments, it returns an instance 
     cache()->put('key', 'value', 10);
 
     cache()->get('key');
+
+<a name="adding-custom-cache-drivers"></a>
+## Adding Custom Cache Drivers
+
+<a name="writing-the-driver"></a>
+### Writing The Driver
+
+To create our custom cache driver, we first need to implement the `Syscodes\Components\Contracts\Cache\Store` [contract](/docs/{{version}}/contracts). So, a MongoDB cache implementation might look something as follow:
+
+    <?php
+
+    namespace App\Extensions;
+
+    use Syscodes\Components\Contracts\Cache\Store;
+
+    class MongoStore implements Store
+    {
+        public function get(string $key) {}
+        public function many(array $keys): array {}
+        public function put(string $key, mixed $value, int $seconds): bool {}
+        public function putMany(array $values, int $seconds): bool {}
+        public function increment(string $key, mixed $value = 1): int|bool {}
+        public function decrement(string $key, mixed $value = 1): int|bool {}
+        public function delete(string $key): mixed {}
+        public function forever(string $key, mixed $value): bool {}
+        public function flush(): bool {}
+        public function getPrefix(): string {}
+    }
+
+We just need to implement each of these methods using a MongoDB connection. Once our implementation is complete, we can finish our custom driver registration by calling the `Cache` facade's `extend` method, as follow:
+
+    Cache::extend('mongo', function (Application $app) {
+        return Cache::repository(new MongoStore);
+    });
+
+> **Note**
+> If you're wondering where to put your custom cache driver code, you could create an `Extensions` namespace within your `app` directory. However, keep in mind that Lenevor does not have a rigid application structure and you are free to organize your application according to your preferences.
+
+<a name="registered-the-driver"></a>
+### Registered The Driver
+
+To register the custom cache driver with Lenevor, we will use the `extend` method on the `Cache` facade. Since other service providers may attempt to read cached values within their `boot` method, we will register our custom driver within a `booting` callback. By using the `booting` callback, we can ensure that the custom driver is registered just before the `boot` method is called on our application's service providers but after the `register` method is called on all of the service providers. We will register our `booting` callback within the `register` method of our application's `App\Providers\AppServiceProvider` class, as follow:
+
+    <?php
+    
+    namespace App\Providers;
+    
+    use App\Extensions\MongoStore;
+    use Syscodes\Components\Support\Facades\Cache;
+    use Syscodes\Components\Support\ServiceProvider;
+    use Syscodes\Components\Contracts\Core\Application;
+    
+    class CacheServiceProvider extends ServiceProvider
+    {
+        /**
+         * Register any application services.
+         */
+        public function register()
+        {
+            $this->app->booting(function () {
+                Cache::extend('mongo', function (Application $app) {
+                    return Cache::repository(new MongoStore);
+                });
+            });
+        }
+        
+        /**
+         * Bootstrap any application services.
+         */
+        public function boot()
+        {
+            // ...
+        }
+    }
+
+The first argument passed to the `extend` method is the name of the driver. This will correspond to your `driver` option in the `config/cache.php` configuration file. The second argument is a closure that should return an `Syscodes\Components\Cache\CacheRepository` instance. The closure will be passed an `$app` instance, which is an instance of the [service container](/docs/{{version}}/container).
+
+Once your extension is registered, update your `config/cache.php` configuration file's `driver` option to the name of your extension.
