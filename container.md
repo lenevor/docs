@@ -10,6 +10,7 @@
 - [Resolving](#resolving)
     - [Make Method](#make-method)
     - [Automatic Injection](#automatic-injection)
+- [Method Invocation & Injection](#method-invocation-injection)
 - [PSR-11](#psr-11)
 
 <a name="introduction"></a>
@@ -232,9 +233,55 @@ This class will be resolved and injected automatically into the class, as follow
          */
         public function show($id)
         {
-            //
+            $segm = $this->request->segment($id);
+
+            return $segm;
         }
     }
+
+<a name="method-invocation-injection"></a>
+## Method Invocation & Injection
+
+In some cases, you may be able to invoke a method on an object instance, while allowing the container to automatically inject that method's dependencies, as follow:
+
+    <?php
+
+    namespace App\Services;
+
+    use Syscodes\Components\Http\Request;
+
+    class ProductService
+    {
+        /**
+         * Generate a new product service.
+         *
+         * @param  \Syscodes\Components\Http\Request  $request
+         *
+         * @return array
+         */
+        public function generate(Request $request): array
+        {
+            return [
+                // ...
+            ];
+        }
+    }
+
+You may invoke the `generate` method via the container, as follow:
+
+    use App\Services\ProductService;
+    use Syscodes\Components\Support\Facades\App;
+
+    $report = App::call([new ProductService, 'generate']);
+
+The `call` method accepts any PHP callable. The container's `call` method may even be used to invoke a closure while automatically injecting its dependencies, as follow:
+
+    use App\Services\ProductService;
+    use Syscodes\Components\Support\Facades\App;
+
+    result = App::call(function (ProductService $service) {
+        // ...
+    }); 
 
 <a name="psr-11"></a>
 ## PSR-11
