@@ -5,7 +5,7 @@
 - [Basic Usage](#basic-usage)
     - [Hashing Passwords](#hashing-passwords)
     - [Verifying A Password Matches A Hash](#verifying-password-matches-hash)
-    - [Checking If A Password Needs To Be Rehashed](#checking-password-needs-to-be-rehashed)
+    - [Verifying If A Password Needs To Be Rehashed](#verifying-password-needs-to-be-rehashed)
 
 <a name="introduction"></a>
 ## Introduction
@@ -92,8 +92,8 @@ The `check` method provided by the `Hash` facade allows you to verify that a giv
         // The passwords match...
     }
 
-<a name="checking-password-needs-to-be-rehashed"></a>
-### Checking If A Password Needs To Be Rehashed
+<a name="verifying-password-needs-to-be-rehashed"></a>
+### Verifying If A Password Needs To Be Rehashed
 
 The `needsRehash` method provided by the `Hash` facade allows you to determine if the work factor used by the hasher has changed since the password was hashed. Some applications choose to perform this check during the application's authentication process, as follow:
 
