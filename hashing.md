@@ -56,7 +56,7 @@ You may hash a password by calling the `make` method on the `Hash` facade, as fo
                 'password' => Hash::make($request->password)
             ])->save();
 
-            return redirect('/lists');
+            return redirect('/profile');
         }
     }
 
