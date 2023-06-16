@@ -20,7 +20,7 @@ Bcrypt is a great choice for hashing passwords because its "work factor" is adju
 The default hashing driver for your application is configured in your application's `config/hashing.php` configuration file. There are currently several supported drivers: [Bcrypt](https://en.wikipedia.org/wiki/Bcrypt) and [Argon2](https://en.wikipedia.org/wiki/Argon2) (Argon2i and Argon2id variants).
 
 <a name="basic-usage"></a>
-## Basic Usage
+## Basic Usage 
 
 <a name="hashing-passwords"></a>
 ### Hashing Passwords
