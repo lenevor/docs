@@ -68,7 +68,7 @@ If you are deploying your application to a server running Ngnix, you may use the
     }
 
 <a name="apache"></a>
-## Apache
+### Apache
 
 This is configuration del archivo `.htaccess`:
 
@@ -94,7 +94,7 @@ This is configuration del archivo `.htaccess`:
         RewriteRule ^ index.php [L]    
     </IfModule>
 
-<a name="iis">
+<a name="iis"></a>
 ### IIS
 
 For IIS, Lenevor provides a `web.config` file located in public/web.config:
